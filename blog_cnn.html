@@ -1,0 +1,336 @@
+<!DOCTYPE HTML>
+<!--
+    Spatial by TEMPLATED
+    templated.co @templatedco
+    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+        <head>
+        <title>A minimal deep learning library implementation in Python | Emile Mathieu - Blog</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Works" />
+        <meta name="keywords" content="works,Emile Mathieu,Mathieu emile,emilemathieu" />
+        <link rel="shortcut icon" href="Images/favicon.ico" type="image/vnd.microsoft.icon" />
+        <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+        <!--<script src="js/jquery.min.js"></script>
+        <script src="js/skel.min.js"></script>
+        <script src="js/skel-layers.min.js"></script>
+        <script src="js/init.js"></script>
+        -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/2.2.1/skel.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/skel-layers/2.0.2/skel-layers.min.js"></script>
+        <script src="js/init.js"></script>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-90612705-1', 'auto');
+          ga('send', 'pageview');
+        </script>
+        
+        <noscript>
+            <!-- <link rel="stylesheet" href="css/skel.css" /> -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skel/2.2.1/skel.css" />
+            <link rel="stylesheet" href="css/style.css" />
+            <link rel="stylesheet" href="css/style-xlarge.css" />
+            <link rel="stylesheet" href="https://assets-cdn.github.com/assets/gist-embed-9f0a4ad9c85ca776e669003688baa9d55f9db315562ce4d231d37dab2714c70a.css">
+        </noscript>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <!-- For offline development: -->
+        <!--<script type="text/javascript" src="./MathJax-master/MathJax.js?config=TeX-AMS_HTML-full"></script>-->
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+          TeX: { equationNumbers: { autoNumber: "AMS" } }
+        });
+        </script>
+        <style type="text/css">
+            canvas { border: 1px solid white; }
+        </style>
+        <meta property="og:title" content="A minimal deep learning library implementation in Python | Emile Mathieu - Blog" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="http://emilemathieu.fr/Images/blog/cnn/cnn.png" />
+        <meta property="og:description" content="A simple tutorial showing how to build a deep learning library in Python." />
+    </head>
+    <body class="landing">
+
+          <!-- Header -->
+            <header id="header" class="alt">
+                <nav id="share" style="left: 1.25em;">
+                    <ul class="icons">
+                        <li style="margin-left:1em"><a href="https://github.com/emilemathieu" target="_blank" class="icon fa-github"><span class="label">Github</span></a></li>
+                        <li style="margin-left:1em"><a href="https://fr.linkedin.com/in/emilemathieu" target="_blank" class="icon  fa-linkedin-square"><span class="label">Linkedin</span></a></li>
+                    </ul>
+                </nav>
+                <!--<h1><strong><a href="index.html">Emile Mathieu</a></strong></h1>-->
+                <nav id="nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <!-- <li><a href="software.html">Software</a></li> -->
+                        <li><a href="works.html">Works</a></li>
+                        <li><a href="misc.html">Misc</a><li>
+                        <li><strong><a href="blog.html">Blog</a></strong><li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+        <!-- Banner -->
+            <section id="banner">
+                <h2>Emile Mathieu</h2>
+            </section>
+
+
+        <!-- uncertainty -->
+            <section id="uncertainty" class="wrapper">
+                <div class="container blog" style="max-width: 1000px;">
+
+                    <header class="major special">
+                        <h2>A minimal deep learning library implementation in Python</h2>
+                        <p>August 10th, 2018</p>
+                    </header>
+
+                    <p>
+                        <div class="social" style="text-align: center;">
+                            <span class="twitter">
+                                <a href="https://twitter.com/share" class="twitter-share-button"{count} data-url="http://emilemathieu.fr/blog_cnn.html" data-size="default">Tweet</a>
+                            </span>
+                            <span class="google">
+                                <div class="g-plusone" data-href="http://emilemathieu.fr/blog_cnn.html"></div>
+                            </span>
+                            <span class="Facebook">
+                                <div id="fb-root"></div>
+                                <div class="fb-share-button" data-href="http://emilemathieu.fr/blog_cnn.html" data-layout="button_count" style="height: 21px; width: 85px" allowTransparency="true"></div>
+                            </span>
+                        </div>
+                    </p>
+
+                    
+                    <p style="display:none">
+                    $
+                    \newcommand{\R}{\mathbb{R}}
+                    \newcommand{\N}{\mathcal{N}}
+                    \newcommand{\svert}{~|~}
+                    \newcommand{\f}{\mathbf{f}}
+                    \newcommand{\x}{\mathbf{x}}
+                    \newcommand{\y}{\mathbf{y}}
+                    \newcommand{\z}{\mathbf{z}}
+                    \newcommand{\w}{\mathbf{w}}
+                    \newcommand{\W}{\mathbf{W}}
+                    \newcommand{\ba}{\mathbf{a}}
+                    \newcommand{\m}{\mathbf{m}}
+                    \newcommand{\ls}{\mathbf{l}}
+                    \newcommand{\bL}{\mathbf{L}}
+                    \newcommand{\X}{\mathbf{X}}
+                    \newcommand{\Y}{\mathbf{Y}}
+                    \newcommand{\p}{\mathbf{p}}
+                    \newcommand{\bepsilon}{\text{$\epsilon$}}
+                    \newcommand{\bgamma}{\text{$\gamma$}}
+                    \newcommand{\K}{\mathbf{K}}
+                    \newcommand{\diag}{\text{diag}}
+                    \newcommand{\argmin}{\text{argmin}}
+                    $
+                    </p>
+                    <p>This tutorial introduces the main blocks needed to build a deep learning library in a few lines of Python. You'll learn how to build your (very) light-weight version of <a href="https://pytorch.org">PyTorch</a>!
+                     </p>
+
+                     <br>
+                    <h2>Convolutional Neural Networks</h2>
+                    <p>
+                    We'll assume familiarity with Convolutional Neural Network (CNN) models. If not I strongly recommend you to first read <a href="http://cs231n.github.io/convolutional-networks/">Stanford's CS231n course on CNNs</a>.
+                       
+                       <div style="margin-top: -20px; margin-bottom: 20px; max-width: 80%; display: block; margin-left: auto; margin-right: auto" class="image captioned row 100% special">
+                            <div class="12u 12u$(medium)"><span class="image captioned fit"><img src="Images/blog/cnn/cnn.png" alt=""></span></div>
+                            <div class="12u"><h5>Architecture of a CNN. — Source: <a href="https://www.mathworks.com/videos/introduction-to-deep-learning-what-are-convolutional-neural-networks--1489512765771.html"> https://www.mathworks.com.</a></h5></div>
+                        </div>
+                    </p>
+
+
+                    <h2>The <i>module</i> paradigm</h2>
+                    <p>The module inheritance paradigm underlies the widely used <a href="https://pytorch.org">PyTorch</a>, <a href="https://github.com/deepmind/sonnet">Sonnet</a> and <a href="https://gluon.mxnet.io">Gluon</a> deep learning libraries.
+                    The idea is to build neural networks in a hierarchical and factored way by leveraging the modularity of so-called <i>modules</i>.
+                    <br>
+                    From a mathematical perspective a <i>module</i> is a differentiable function. It can  have parameters to be learned and then needs to also be differentiable with respect to these parameters.
+                    From a programmatic perspective, it is a class implementing a <b>forward</b> method $\mathbf{y} = f(\mathbf{x})$ (input $\mathbf{x}$, output $\mathbf{y}$) and a <b>backward</b> method $g(\mathbf{x}, \nabla\mathbf{y}) = \nabla_{\mathbf{x}} \ f(\mathbf{x}) \times \nabla \mathbf{y}$. If it has parameters $\theta$ that we wish to learn, it additionally needs these parameters as <b>attributes</b>, a <b>step</b> method that performs an optimisation step on $\theta$ when called, and the <b>backward</b> method to also compute and save $\nabla_{\theta} f_\theta(\mathbf{x}) \times \nabla\mathbf{y}$ before returning $g(\mathbf{x}, \nabla\mathbf{y})$.
+                    Below is the abstract <b>Module</b> class that will be inherited.
+                    </p>
+
+                    <script src="https://gist.github.com/emilemathieu/f640d0a7d368196f39f25202b1f95d6d.js"></script>
+
+                    <p>This design enables to build small blocks of layers than can then be assembled to build bigger blocks and so on. Factoring code in this manner reduces the number of lines needed to defined a model and eases experimentation of new architectures.
+                    </p>
+
+                    <br>
+                    <h3>Layers</h3>
+                    <p>
+                    Layers are the basic functions composing neural networks.
+                    They will be implemented by inheriting the abstract <b>Module</b> class.
+                    For instance, a <i>linear layer</i> is parametrised by a weight $\mathbf{A}$ and a bias $\mathbf{b}$, and defined by the <b>forward</b> function $f(\mathbf{x}) = \mathbf{A} \mathbf{x} + \mathbf{b}$, the <b>backward</b> function $g(\mathbf{x}, \nabla\mathbf{y}) = \nabla_{\mathbf{x}} \ f(\mathbf{x}) \times \nabla \mathbf{y} = \mathbf{A} \nabla \mathbf{y}$ and its weight and bias partial derivatives 
+                    $\nabla_{\mathbf{b}} \ f_{\mathbf{A},\mathbf{b}}(\mathbf{x}) \times \nabla\mathbf{y} = 1^T \nabla\mathbf{y}$
+                    and $\nabla_{\mathbf{A}} \ f_{\mathbf{A},\mathbf{b}}(\mathbf{x}) \times \nabla\mathbf{y} = \nabla\mathbf{y}^T \mathbf{x}$.
+                    </p>
+                    <script src="https://gist.github.com/emilemathieu/87938f3e9e9acd00372dc7224a832574.js"></script>
+
+                    <br>
+                    <h3>Training</h3>
+                    <p>
+                   Neural networks can be trained via <i>back-propagation</i> which is the application of the <a href="https://en.wikipedia.org/wiki/Chain_rule"><i>chain rule</i></a> to the loss's gradient up to the neural net's layers parameters.
+                    For easiness, we restrict ourselves to neural nets that can be represented as a composition of functions $f(\mathbf{x}) = f_n \circ \dots \circ f_1(\mathbf{x})$. It enables to represent explicitly the dependency between layers via a list. Some networks like <a href="https://arxiv.org/abs/1512.03385">ResNets</a> are excluded by this assumption since they need the network to be represented as a DAG, but it's all right for our purpose.
+                    <br><br>
+                    Such composition of functions are implemented via a <b>Sequential</b> class constructed with a list of sub-modules. Then its <b>forward</b> method calls each sub-module's <b>forward</b> method, its <b>backward</b> calls in <i>reverse</i> order each sub-module's <b>backward</b> method, and its <b>step</b> method calls each trainable (having parameters to learn) sub-module's <b>step</b> method.
+                    </p>
+                    <script src="https://gist.github.com/emilemathieu/97dc38a4c0f8a4d66393c19d73df24b2.js"></script>
+
+                    <p>
+                        The network is trained so as to minimise a user-defined loss $L(\mathbf{X}, \mathbf{y}^{\text{true}}, \theta) = \sum_{i} l(f_{\theta}(\mathbf{x}_i), y{\text{true}}_i)$. The <i>cross entropy</i> is for instance widely used for classification tasks.
+                    </p>
+                    <script src="https://gist.github.com/emilemathieu/1873f05800df51927a1d7e4dbb330b32.js"></script>
+
+                    <p>
+                    Hence, each trainable layer gets its parameters partial derivative automatically computed by backpropagating the loss's gradient through the sequence of layers:
+                    \begin{equation}
+                    \forall i=n,\dots,1  \quad  \nabla_{\theta_i} L(\mathbf{X}, \mathbf{y}, \theta) = \nabla_{\theta_i} f_i(\mathbf{X}) \times \left( g_{i+1} \circ \dots \circ g_n \left(\nabla_{X} L \left(\mathbf{X}, \mathbf{y}, \theta\right) \right) \right)
+                    \end{equation}
+                    </p>
+
+                    <h2>Optimisation</h2>
+                    <p>
+                    The most straightforward optimisation scheme for neural networks is (momentum) stochastic gradient descent which applies the following update on the parameters $\theta$
+
+                    \begin{equation}
+                    v_t = \gamma v_{t-1} + \eta \nabla_\theta J( \theta) \\  
+                    \theta = \theta - v_t
+                    \end{equation}
+                    with $\eta$ being the learning rate and $\gamma$ the momentum coefficient.
+                    <b>SGD</b> inherits from <b>Optmizer</b> as implemented below.
+                    </p>
+                    <script src="https://gist.github.com/emilemathieu/46fb760060ea4b28bad28f3035c26a21.js"></script>
+                    <p>
+                    I also implemented <a href="https://arxiv.org/abs/1412.6980">Adam</a> and <a href="https://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf">RMSProp</a> in <a href="https://github.com/emilemathieu/blog_cnn/blob/master/mllib/optim.py">optim.py</a>. For a nice review of gradient-based optimisation schemes used for deep neural nets training, check <a href="http://ruder.io/optimizing-gradient-descent/">S. Ruder's blog post</a>.
+
+                    <br><br>
+                    An optimisation step can then be performed by calling
+                    <script src="https://gist.github.com/emilemathieu/8525404649bb6c786243225d4f66c77d.js"></script>
+                    </p>
+
+                    <br>
+                    <h2>Demonstration on MNIST</h2>
+                    <p>
+                    Let's demonstrate our library on the <a href="http://yann.lecun.com/exdb/mnist/">MNIST classification task dataset</a>.
+                    We define our CNN by inheriting the <b>Module</b> class, thus implementing the <b>forward</b>, <b>backward</b> and <b>step</b> methods as shown below.
+
+                    </p>
+                    <script src="https://gist.github.com/emilemathieu/acb3dc9a0125bd9e30b69ff857cc3eec.js"></script>
+                    <p>
+                        Clone the <a href="https://github.com/emilemathieu/blog_cnn">associated Github repository</a> and then run the <a href="https://github.com/emilemathieu/blog_cnn/blob/master/example.py">example script</a> so as to load the MNIST dataset, instantiate the CNN model, train it by backpropagation and eventually predict a digit's label as plotted below.
+
+                    <div class="image captioned row 100% special">
+                            <div class="6u 6u$(medium)"><span class="image captioned fit"><img src="Images/blog/cnn/digit.png" alt=""></span></div>
+                            <div class="6u 6u$(medium)"><span class="image captioned fit"><img src="Images/blog/cnn/pred.png" alt=""></span></div>
+                            <div class="12u"><h5>(Left) Example of mnist digit. (Right) Label prediction of our trained CNN.</h5></div>
+                        </div>
+                    </p>
+
+                    <h3>What's missing towards a complete library ?</h3>
+                    <p>
+                    We've built in this tutorial the minimum blocks towards a working deep learning library, yet some parts are still missing to have a complete library.
+                    First, an <b>automatic-differentation</b> (autodiff) library avoid having to explicitly manipulate the gradients. Indeed, while being (imperatively) defined, the neural net is then implicitly represented as a DAG, allowing gradients to be automatically computed in a backward manner via the <i>chain rule</i>.
+                    Moreover, a <b>data-loader</b> wrapper is really useful so as to ease downloading, loading and preprocessing datasets. More layers and optimisation schemes should also be added.
+                    <b>GPU support</b> is also really important for large scale training.
+                    </p>
+                    
+                    <h3>Acknowledgments</h3>
+                    <p>I’m grateful to Thomas Pesneau and Yuan Zhou for their comments.</p>
+
+<!-- Share buttons UI -->
+<style type="text/css">
+/* This gets Google to fall into place */
+.social {
+    font-size: 1px;
+    text-align: right;
+}
+
+/* This gets Facebook to fall into place */
+.social iframe {
+    vertical-align: middle;
+}
+
+/* Set an optional width for your button wrappers */
+.social span {
+    display: inline-block;
+    /*width: 110px;*/
+}
+
+.social .twitter {
+    margin-right: 6px;
+}
+.social .twitter a {
+    margin-left: 5px;
+    margin-top: 2px;
+    color: #4e5665;
+    font-size: 11px;
+    line-height: 18px;
+}
+.social .google {
+    width: 83px;
+}
+.social .Facebook {
+    width: 85px;
+}
+.social .Facebook div span {
+    vertical-align: middle !important;
+}
+</style>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<script src="https://apis.google.com/js/platform.js" async defer>
+  {lang: 'en-GB'}
+</script>
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+this.page.url = 'http://emilemathieu.fr';  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'cnn'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://http-emilemathieu-fr.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+
+    </body>
+</html>
