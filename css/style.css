@@ -73,9 +73,9 @@
 
     .blog {
         line-height: 150%;
-        font-size: 16px; 
-        font-family: Helvetica, Arial, sans-serif; 
-        font-weight: 300; 
+        font-size: 16px;
+        font-family: Helvetica, Arial, sans-serif;
+        font-weight: 300;
         color: black;
     }
 
@@ -1152,7 +1152,7 @@
     #banner {
         padding: 6em 0 4em 0;
         background-attachment: fixed;
-        background-image: url("images/overlay.png"), url("../Images/banner.jpg");
+        background-image: url("images/overlay.png"), url("../Images/jacksonpollockpainting.jpg");
         background-position: center 105%;
         /*background-position: center top;*/
         background-size: cover;
@@ -1201,7 +1201,7 @@
 
         .wrapper.style3 {
             background-attachment: fixed;
-            background-image: url("images/overlay.png"), url("../Images/banner.jpg");
+            background-image: url("images/overlay.png"), url("../Images/jacksonpollockpainting.jpg");
             background-position: center center;
             background-size: cover;
         }
