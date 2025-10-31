@@ -3,124 +3,128 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jean-François Ton — Research Scientist</title>
-  <meta name="description" content="Jean-François Ton is a research scientist focused on large language model post-training, reward modelling, and multi-agent alignment." />
+  <title>Jean-François Ton — Academic Profile</title>
+  <meta name="description" content="Academic profile of Jean-François Ton, Senior Research Scientist at ByteDance focusing on responsible large language model alignment." />
   <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/layout.css" />
-  <link rel="stylesheet" href="css/theme.css" />
-  <script defer src="js/reveal.js"></script>
-  <script defer src="js/papers.js"></script>
+  <link rel="stylesheet" href="css/site.css" />
 </head>
 <body>
-  <header class="site-header" id="top">
-    <div class="site-header__inner">
-      <a class="logo" href="index.html" aria-label="Jean-François Ton home">JF TON</a>
-      <nav class="nav" aria-label="Primary">
-        <a href="index.html" aria-current="page">Home</a>
-        <a href="works.html">Research</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
+  <header id="top" class="site-header">
+    <p class="site-header__title">Jean-François Ton</p>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#research">Research Interests</a>
+      <a href="#publications">Recent Publications</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
   <main>
-    <section class="hero" id="intro">
-      <div class="grid" style="gap: clamp(1.75rem, 3.5vw, 2.5rem);">
-        <div class="hero__meta">
-          <span class="badge">Senior Research Scientist · TikTok</span>
-          <span class="pill">Large language models</span>
-          <span class="pill">Post-training &amp; alignment</span>
-          <span class="pill">Multi-agent systems</span>
+    <section id="about" class="intro">
+      <h1 class="intro__headline">Senior Research Scientist in Responsible AI for Large Language Models</h1>
+      <p class="intro__lead">ByteDance Research / SEED · London, United Kingdom</p>
+      <p>I study how to align large language models with human values and societal norms. My work develops adaptive preference learning, reliable reward modelling, and evaluation frameworks for teams of collaborating agents. I completed a DPhil in Statistics and Machine Learning at the University of Oxford under the supervision of Yee Whye Teh and Dino Sejdinovic, following earlier degrees in applied statistics and mathematics.</p>
+      <div class="info-grid">
+        <div>
+          <strong>Current focus</strong>
+          <ul class="stack">
+            <li>Responsible deployment of post-trained LLMs for high-stakes user interactions.</li>
+            <li>Scalable data collection and uncertainty-aware reward modelling.</li>
+            <li>Designing evaluations for cooperative multi-agent systems.</li>
+          </ul>
         </div>
-        <h1 class="hero__headline">Designing trustworthy <span>post-trained LLMs</span> that collaborate safely with people and other agents.</h1>
-        <p class="hero__description">I build and study reinforcement learning from human feedback, reward modelling, and multi-agent evaluation frameworks that close the gap between raw language models and responsible deployed AI systems. Previously, I worked on kernel methods, causal inference, and conformal prediction—techniques that still inform how I evaluate uncertainty today.</p>
-        <div class="hero__meta" style="gap: 1rem;">
-          <a class="button" href="#latest">Explore recent work</a>
-          <a class="button button--ghost" href="PDFs/jf_CV_new.pdf" target="_blank" rel="noopener">Download CV</a>
+        <div>
+          <strong>Previous appointments</strong>
+          <ul class="stack">
+            <li>Research Scientist Intern, Amazon (Tübingen, 2021–2022).</li>
+            <li>Research Scientist Intern, Apple (Cupertino, 2020–2021).</li>
+            <li>Research roles at Bloomberg LP and Imperial College on statistical methods and reinforcement learning.</li>
+          </ul>
         </div>
+      </div>
+      <div>
+        <strong>Education</strong>
+        <ul class="education-list">
+          <li class="education-item">
+            <strong>DPhil, Statistics &amp; Machine Learning — University of Oxford</strong>
+            <span>St Peter’s College · Sep 2017 – Sep 2022</span>
+            <p class="note">Thesis: <em>Causal Reasoning and Meta Learning using Kernel Mean Embeddings</em>.</p>
+          </li>
+          <li class="education-item">
+            <strong>Masters, Applied Statistics — University of Oxford</strong>
+            <span>Somerville College · Oct 2016 – Aug 2017 · Distinction (Top 10%)</span>
+          </li>
+          <li class="education-item">
+            <strong>BSc, Mathematics — Imperial College London</strong>
+            <span>Oct 2013 – Aug 2016 · First Class Honours</span>
+          </li>
+        </ul>
       </div>
     </section>
 
-    <section class="section section--narrow" id="focus">
-      <h2 class="section-title">Current research focus</h2>
-      <div class="focus-grid">
-        <article class="focus-card reveal-on-scroll">
-          <h3>Instruction-tuned LLMs</h3>
-          <p>I develop post-training pipelines that combine reinforcement learning, direct preference optimisation, and scalable human feedback to align foundation models with nuanced policies.</p>
-        </article>
-        <article class="focus-card reveal-on-scroll">
-          <h3>Reward modelling &amp; safety evaluation</h3>
-          <p>From synthetic preference datasets to real-time feedback loops, my work builds robust reward models that respect safety constraints and uncover failure modes before launch.</p>
-        </article>
-        <article class="focus-card reveal-on-scroll">
-          <h3>Multi-agent systems</h3>
-          <p>I prototype collaborative agent swarms that coordinate reasoning, tool use, and exploration—while leveraging my earlier research on kernels and conformal risk bounds to quantify uncertainty.</p>
-        </article>
-      </div>
+    <section id="research">
+      <h2>Research Interests</h2>
+      <ul class="tag-list">
+        <li class="tag">LLM Alignment &amp; Safety</li>
+        <li class="tag">Preference &amp; Reward Modelling</li>
+        <li class="tag">Multi-Agent Evaluation</li>
+        <li class="tag">Causal Inference &amp; Uncertainty</li>
+        <li class="tag">Efficient Learning Systems</li>
+      </ul>
+      <p class="smaller">I design data-efficient alignment methods, translate theoretical guarantees into practical evaluation tooling, and study how uncertainty estimates mitigate reward hacking in complex environments. Earlier work on kernel methods and causal discovery still shapes how I analyse LLM behaviour today.</p>
     </section>
 
-    <section class="section" id="latest">
-      <div class="section--narrow">
-        <div class="grid" style="gap: 1rem; margin-bottom: clamp(1.5rem, 3vw, 2.5rem);">
-          <h2 class="section-title" style="margin-bottom: 0;">Most recent papers</h2>
-          <p class="text-muted">A living stream of my latest publications and preprints across LLM post-training, reward modelling, and collaborative agents. Scroll to reveal the highlights, or head to the research library for filters and archives.</p>
-        </div>
-        <div class="paper-grid timeline" data-papers-target="featured">
-          <p class="paper-grid__message" data-paper-error hidden>
-            We couldn’t load the latest papers right now. Please refresh the page or visit again soon.
-          </p>
-        </div>
-        <div class="grid" style="margin-top: clamp(2rem, 4vw, 3rem);">
-          <a class="button button--ghost" href="works.html">Browse the full research library →</a>
-        </div>
-      </div>
+    <section id="publications">
+      <h2>Recent Publications</h2>
+      <p class="smaller">Selected publications that illustrate ongoing themes in preference-based alignment, trustworthy deployment, and efficient learning.</p>
+      <ul class="publication-list">
+        <li class="publication">
+          <strong>Active Reward Modeling: Adaptive Preference Labeling for Large Language Model Alignment</strong>
+          <span>ICML 2025 — Yunyi Shen*, Hao Sun*, Jean-François Ton</span>
+        </li>
+        <li class="publication">
+          <strong>Understanding Chain-of-Thought in LLMs through Information Theory</strong>
+          <span>ICML 2025 — Jean-François Ton*, Muhammad Faaiz Taufiq, Yang Liu</span>
+        </li>
+        <li class="publication">
+          <strong>ACC-Debate: An Actor-Critic Approach to Multi-Agent Debate</strong>
+          <span>ICLR 2025 — Jean-François Ton*, Andrew Estornell*, Yuanshun Yao, Yang Liu</span>
+        </li>
+        <li class="publication">
+          <strong>Mitigating Reward Overoptimization via Lightweight Uncertainty</strong>
+          <span>NeurIPS 2024 — Jean-François Ton*, Xiaoying Zhang*, Wei Shen, Hongning Wang, Yang Liu</span>
+        </li>
+        <li class="publication">
+          <strong>Conformal Off-Policy Prediction in Contextual Bandits</strong>
+          <span>NeurIPS 2022 — Jean-François Ton*, Muhammad Faaiz Taufiq*, Rob Cornish, Yee Whye Teh, Arnaud Doucet</span>
+        </li>
+      </ul>
+      <p class="note">For a full list organised by topic, see the <a href="works.html">publications page</a>.</p>
     </section>
 
-    <section class="section section--narrow" id="experience">
-      <h2 class="section-title">Selected collaborations</h2>
-      <div class="split">
-        <div class="contact-card reveal-on-scroll">
-          <strong>Industry</strong>
-          <p>TikTok (ByteDance AI Lab), Apple ML Research, Amazon Tübingen, Bloomberg AI.</p>
-        </div>
-        <div class="contact-card reveal-on-scroll">
-          <strong>Academic</strong>
-          <p>University of Oxford (OATML), University of Cambridge, Alan Turing Institute, Imperial College London.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--narrow" id="contact-preview">
-      <div class="split">
-        <div class="contact-card reveal-on-scroll">
-          <strong>Let’s build aligned agents together</strong>
-          <p>I’m always up for technical discussions around reinforcement learning from human feedback, scalable evaluation, and multi-agent orchestration.</p>
-        </div>
-        <div class="contact-card reveal-on-scroll">
-          <p>Email</p>
-          <h3><a href="mailto:hello@jeanfrancoiston.com">hello@jeanfrancoiston.com</a></h3>
-          <p class="text-muted">I am not hiring interns at the moment, but I welcome collaborations and speaking invitations.</p>
-          <div class="hero__meta">
-            <a href="https://scholar.google.com/citations?user=WWVOu4kAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
-            <a href="https://github.com/sAviOr287" target="_blank" rel="noopener">GitHub</a>
-            <a href="https://www.linkedin.com/in/jean-fran%C3%A7ois-ton-b172a5102/" target="_blank" rel="noopener">LinkedIn</a>
-          </div>
-        </div>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>If you would like to discuss collaborations, speaking invitations, or share feedback on alignment research, please reach out using the links below.</p>
+      <div class="link-row">
+        <a href="mailto:jeanfrancois287@hotmail.fr">jeanfrancois287@hotmail.fr</a>
+        <a href="https://www.linkedin.com/in/jean-fran%C3%A7ois-ton-b172a5102/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user=WWVOu4kAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="site-footer__inner">
-      <p>© <span id="year"></span> Jean-François Ton. Crafted for GitHub Pages.</p>
-      <div class="social-links" aria-label="Social links">
-        <a href="https://scholar.google.com/citations?user=WWVOu4kAAAAJ" target="_blank" rel="noopener">Scholar</a>
-        <a href="https://github.com/sAviOr287" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/jean-fran%C3%A7ois-ton-b172a5102/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
+  <footer class="footer">
+    <div class="footer__inner">
+      <span>© <span id="year"></span> Jean-François Ton</span>
+      <ul class="list-inline" aria-label="Footer links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
   </footer>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>

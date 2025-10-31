@@ -4,72 +4,55 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jean-François Ton — Contact</title>
-  <meta name="description" content="Get in touch with Jean-François Ton about collaborative research on large language models, reward modelling, and multi-agent systems." />
+  <meta name="description" content="Contact details for Jean-François Ton, including email, LinkedIn, and Google Scholar." />
   <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/layout.css" />
-  <link rel="stylesheet" href="css/theme.css" />
-  <script defer src="js/reveal.js"></script>
+  <link rel="stylesheet" href="css/site.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="site-header__inner">
-      <a class="logo" href="index.html" aria-label="Jean-François Ton home">JF TON</a>
-      <nav class="nav" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="works.html">Research</a>
-        <a href="contact.html" aria-current="page">Contact</a>
-      </nav>
-    </div>
+  <header id="top" class="site-header">
+    <p class="site-header__title"><a href="index.html">Jean-François Ton</a></p>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html#about">About</a>
+      <a href="index.html#research">Research</a>
+      <a href="works.html">Publications</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </nav>
   </header>
 
   <main>
-    <section class="section" style="padding-bottom: clamp(2rem, 4vw, 3rem);">
-      <div class="section--narrow">
-        <div class="grid" style="gap: clamp(1rem, 2.5vw, 1.5rem);">
-          <span class="badge">Let’s collaborate</span>
-          <h1 class="hero__headline" style="font-size: clamp(2rem, 4vw, 2.8rem);">Reach out about responsible LLM deployment and research partnerships.</h1>
-          <p class="hero__description" style="max-width: 44rem;">Whether you’re interested in evaluation frameworks for multi-agent systems or scaling preference data collection, I’m happy to connect. I’m not hiring interns right now, but I welcome conversations with researchers, engineers, and policy teams.</p>
+    <section class="intro">
+      <h1 class="intro__headline">Stay in Touch</h1>
+      <p class="intro__lead">I welcome conversations about large language model alignment, responsible deployment, and collaborative research projects.</p>
+      <div class="info-grid">
+        <div>
+          <strong>Email</strong>
+          <p><a href="mailto:jeanfrancois287@hotmail.fr">jeanfrancois287@hotmail.fr</a></p>
+          <p class="note">Please include a brief description of your project and preferred timeline.</p>
+        </div>
+        <div>
+          <strong>Professional networks</strong>
+          <ul class="stack">
+            <li><a href="https://www.linkedin.com/in/jean-fran%C3%A7ois-ton-b172a5102/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://scholar.google.com/citations?user=WWVOu4kAAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
+          </ul>
         </div>
       </div>
-    </section>
-
-    <section class="section" style="padding-top: 0;">
-      <div class="section--narrow">
-        <div class="split">
-          <article class="contact-card reveal-on-scroll">
-            <strong>Email</strong>
-            <h3><a href="mailto:hello@jeanfrancoiston.com">hello@jeanfrancoiston.com</a></h3>
-            <p class="text-muted">For secure threads, feel free to request a PGP key.</p>
-          </article>
-          <article class="contact-card reveal-on-scroll">
-            <strong>Networks</strong>
-            <ul class="grid" style="gap: 0.5rem;">
-              <li><a href="https://scholar.google.com/citations?user=WWVOu4kAAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
-              <li><a href="https://github.com/sAviOr287" target="_blank" rel="noopener">GitHub</a></li>
-              <li><a href="https://www.linkedin.com/in/jean-fran%C3%A7ois-ton-b172a5102/" target="_blank" rel="noopener">LinkedIn</a></li>
-            </ul>
-          </article>
-          <article class="contact-card reveal-on-scroll">
-            <strong>Based in</strong>
-            <p>London &amp; Singapore<br />Hybrid with global collaborators.</p>
-            <p class="text-muted">Available for invited talks, panel discussions, and advisory sessions on alignment strategy.</p>
-          </article>
-        </div>
-      </div>
+      <p class="note">For students seeking mentorship: I am unable to supervise internships in 2024–2025 but I am happy to provide pointers to relevant readings or evaluation datasets.</p>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="site-footer__inner">
-      <p>© <span id="year"></span> Jean-François Ton. Crafted for GitHub Pages.</p>
-      <div class="social-links" aria-label="Social links">
-        <a href="https://scholar.google.com/citations?user=WWVOu4kAAAAJ" target="_blank" rel="noopener">Scholar</a>
-        <a href="https://github.com/sAviOr287" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/jean-fran%C3%A7ois-ton-b172a5102/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
+  <footer class="footer">
+    <div class="footer__inner">
+      <span>© <span id="year"></span> Jean-François Ton</span>
+      <ul class="list-inline" aria-label="Footer links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#research">Research</a></li>
+        <li><a href="works.html">Publications</a></li>
+        <li><a href="#top">Top</a></li>
+      </ul>
     </div>
   </footer>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>

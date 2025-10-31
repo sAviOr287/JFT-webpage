@@ -3,178 +3,42 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jean-François Ton — Soft-Margin Kernel SVMs</title>
-  <meta
-    name="description"
-    content="Jean-François Ton explains the intuition and implementation details behind an efficient soft-margin kernel SVM solver in Python."
-  />
+  <title>Jean-François Ton — Methods Archive</title>
+  <meta name="description" content="Archived methods note for Jean-François Ton. This page is being updated to match the new academic website." />
   <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/layout.css" />
-  <link rel="stylesheet" href="css/theme.css" />
-  <script defer src="js/reveal.js"></script>
-  <script defer src="js/papers.js"></script>
+  <link rel="stylesheet" href="css/site.css" />
 </head>
 <body>
-  <header class="site-header" id="top">
-    <div class="site-header__inner">
-      <a class="logo" href="index.html" aria-label="Jean-François Ton home">JF TON</a>
-      <nav class="nav" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="works.html">Research</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
+  <header id="top" class="site-header">
+    <p class="site-header__title"><a href="index.html">Jean-François Ton</a></p>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html#about">About</a>
+      <a href="index.html#research">Research</a>
+      <a href="works.html">Publications</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="grid" style="gap: clamp(1.75rem, 3.5vw, 2.5rem);">
-        <span class="badge">Tutorial</span>
-        <h1 class="hero__headline">An efficient soft-margin kernel SVM from first principles.</h1>
-        <p class="hero__description">
-          A structured recap of the optimisation problem, kernel trick, and numerical considerations behind a compact Python
-          implementation of support vector machines.
-        </p>
-        <div class="hero__meta" style="gap: 0.75rem;">
-          <span class="pill">August 8, 2018</span>
-          <span class="pill">Educational series</span>
-        </div>
-        <div class="hero__meta" style="gap: 1rem;">
-          <a class="button" href="#intuition">Skip to the intuition</a>
-          <a class="button button--ghost" href="https://github.com/emilemathieu/ImageClassificationChallenge/tree/master/code/mllib/svm" target="_blank" rel="noopener">Open the code</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--narrow" id="intuition">
-      <h2 class="section-title">The high-level picture</h2>
-      <div class="grid" style="gap: clamp(1.5rem, 3vw, 2.5rem);">
-        <article class="contact-card reveal-on-scroll">
-          <strong>Maximise the margin</strong>
-          <p>
-            The primal objective favours wide, separating hyperplanes. Soft-margin slack variables introduce a controlled way
-            to handle misclassified points.
-          </p>
-        </article>
-        <article class="contact-card reveal-on-scroll">
-          <strong>Leverage kernels</strong>
-          <p>
-            Map inputs to a higher-dimensional feature space where linear separators exist. The kernel trick lets us operate
-            in that space implicitly, avoiding explicit basis expansions.
-          </p>
-        </article>
-        <article class="contact-card reveal-on-scroll">
-          <strong>Optimise efficiently</strong>
-          <p>
-            Coordinate descent and decomposition methods make the dual problem tractable even for medium-sized datasets.
-            Practical solvers balance speed with numerical stability.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section section--narrow" id="math">
-      <h2 class="section-title">From primal to dual</h2>
-      <div class="grid" style="gap: clamp(1.5rem, 3vw, 2.5rem);">
-        <article class="focus-card reveal-on-scroll" style="background: rgba(16, 20, 24, 0.04); box-shadow: none;">
-          <div class="grid" style="gap: 0.75rem;">
-            <strong>Primal formulation</strong>
-            <p>
-              Minimise <em>½‖w‖² + C∑ξᵢ</em> subject to label-consistent constraints. Slack variables ξᵢ measure violations of the
-              margin and are weighted by the regularisation parameter C.
-            </p>
-          </div>
-        </article>
-        <article class="focus-card reveal-on-scroll" style="background: rgba(16, 20, 24, 0.04); box-shadow: none;">
-          <div class="grid" style="gap: 0.75rem;">
-            <strong>Dual objective</strong>
-            <p>
-              By introducing Lagrange multipliers αᵢ we solve a quadratic program bounded between 0 and C with the constraint
-              ∑αᵢyᵢ = 0. Kernels appear naturally via dot products between feature-mapped samples.
-            </p>
-          </div>
-        </article>
-        <article class="focus-card reveal-on-scroll" style="background: rgba(16, 20, 24, 0.04); box-shadow: none;">
-          <div class="grid" style="gap: 0.75rem;">
-            <strong>Decision function</strong>
-            <p>
-              After optimisation, only support vectors (samples with αᵢ &gt; 0) contribute to predictions:
-              <em>f(x) = sign(∑αᵢyᵢK(xᵢ, x) + b)</em>.
-            </p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section section--narrow" id="implementation">
-      <h2 class="section-title">Implementation notes</h2>
-      <div class="focus-grid">
-        <article class="focus-card reveal-on-scroll">
-          <span class="pill">Optimisation</span>
-          <h3>Sequential minimal optimisation</h3>
-          <p>
-            Update pairs of dual variables at a time, reusing heuristics popularised by Platt and refined in LIBSVM. This keeps
-            computations lightweight and numerically stable.
-          </p>
-        </article>
-        <article class="focus-card reveal-on-scroll">
-          <span class="pill">Kernels</span>
-          <h3>RBF &amp; polynomial</h3>
-          <p>
-            The minimal library implements radial basis and polynomial kernels, but the interface makes it easy to plug in
-            custom metrics that better reflect your dataset.
-          </p>
-        </article>
-        <article class="focus-card reveal-on-scroll">
-          <span class="pill">Practical tips</span>
-          <h3>Scaling &amp; evaluation</h3>
-          <p>
-            Always standardise features, tune C and γ via cross-validation, and monitor support vector counts to ensure the
-            model generalises.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section section--narrow" id="extras">
-      <h2 class="section-title">Try it yourself</h2>
-      <div class="grid" style="gap: clamp(1.5rem, 3vw, 2.5rem);">
-        <article class="contact-card reveal-on-scroll">
-          <strong>Hands-on notebooks</strong>
-          <p>
-            Example Jupyter notebooks demonstrate binary classification on synthetic datasets and image patches. Extend them to
-            multi-class problems via one-vs-rest.
-          </p>
-        </article>
-        <article class="contact-card reveal-on-scroll">
-          <strong>Recommended reading</strong>
-          <p>
-            Dive deeper with Lin &amp; Bottou’s “Support Vector Machine Solvers” and the LIBSVM documentation for production-grade
-            details.
-          </p>
-        </article>
-        <article class="contact-card reveal-on-scroll">
-          <strong>Share improvements</strong>
-          <p>
-            If you adapt the solver for large-scale sparse data or integrate it into an alignment workflow, I’d love to feature
-            your notes here. Drop me a line via the contact page.
-          </p>
-        </article>
-      </div>
+    <section class="intro">
+      <h1 class="intro__headline">Methods Archive</h1>
+      <p class="intro__lead">Kernel methods lecture notes and related tutorials are being updated for accuracy and style.</p>
+      <p class="smaller">If you need access to the legacy material, please email <a href="mailto:jeanfrancois287@hotmail.fr">jeanfrancois287@hotmail.fr</a> and I will send a copy.</p>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="site-footer__inner">
-      <p>© <span id="year"></span> Jean-François Ton. Crafted for GitHub Pages.</p>
-      <div class="social-links" aria-label="Social links">
-        <a href="https://scholar.google.com/citations?user=WWVOu4kAAAAJ" target="_blank" rel="noopener">Scholar</a>
-        <a href="https://github.com/sAviOr287" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/jean-fran%C3%A7ois-ton-b172a5102/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
+  <footer class="footer">
+    <div class="footer__inner">
+      <span>© <span id="year"></span> Jean-François Ton</span>
+      <ul class="list-inline" aria-label="Footer links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#research">Research</a></li>
+        <li><a href="works.html">Publications</a></li>
+        <li><a href="#top">Top</a></li>
+      </ul>
     </div>
   </footer>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>

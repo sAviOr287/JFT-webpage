@@ -3,181 +3,42 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jean-François Ton — Building a Minimal Deep Learning Library</title>
-  <meta
-    name="description"
-    content="A guided tour through Jean-François Ton’s minimal deep learning library, covering modules, layers, and optimisation loops."
-  />
+  <title>Jean-François Ton — Archive Note</title>
+  <meta name="description" content="Archived article placeholder for Jean-François Ton. Content is being refreshed to match the new academic site." />
   <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/layout.css" />
-  <link rel="stylesheet" href="css/theme.css" />
-  <script defer src="js/reveal.js"></script>
-  <script defer src="js/papers.js"></script>
+  <link rel="stylesheet" href="css/site.css" />
 </head>
 <body>
-  <header class="site-header" id="top">
-    <div class="site-header__inner">
-      <a class="logo" href="index.html" aria-label="Jean-François Ton home">JF TON</a>
-      <nav class="nav" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="works.html">Research</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
+  <header id="top" class="site-header">
+    <p class="site-header__title"><a href="index.html">Jean-François Ton</a></p>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html#about">About</a>
+      <a href="index.html#research">Research</a>
+      <a href="works.html">Publications</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="grid" style="gap: clamp(1.75rem, 3.5vw, 2.5rem);">
-        <span class="badge">Tutorial</span>
-        <h1 class="hero__headline">Designing a minimal deep learning library in pure Python.</h1>
-        <p class="hero__description">
-          A practical walkthrough of the abstractions that power PyTorch-style frameworks—modules, layers, backpropagation,
-          and optimisation—implemented in a few dozen lines.
-        </p>
-        <div class="hero__meta" style="gap: 0.75rem;">
-          <span class="pill">August 10, 2018</span>
-          <span class="pill">Educational series</span>
-        </div>
-        <div class="hero__meta" style="gap: 1rem;">
-          <a class="button" href="#overview">Jump to the concepts</a>
-          <a class="button button--ghost" href="https://github.com/emilemathieu/ImageClassificationChallenge/tree/master/code/mllib" target="_blank" rel="noopener">View the source</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--narrow" id="overview">
-      <h2 class="section-title">Why build your own framework?</h2>
-      <div class="grid" style="gap: clamp(1.5rem, 3vw, 2.5rem);">
-        <article class="contact-card reveal-on-scroll">
-          <strong>Understand the plumbing</strong>
-          <p>
-            Re-implementing the basics demystifies what happens between forward passes and gradient steps. It also sharpens
-            intuition for debugging large-scale systems.
-          </p>
-        </article>
-        <article class="contact-card reveal-on-scroll">
-          <strong>Move fast in research</strong>
-          <p>
-            A slim framework makes it easy to test unconventional layers or loss functions before porting them into
-            production-grade stacks.
-          </p>
-        </article>
-        <article class="contact-card reveal-on-scroll">
-          <strong>Teach effectively</strong>
-          <p>
-            Students grasp tensor calculus faster when they can inspect each line of code that propagates gradients and updates
-            parameters.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section section--narrow" id="architecture">
-      <h2 class="section-title">Core building blocks</h2>
-      <div class="focus-grid">
-        <article class="focus-card reveal-on-scroll">
-          <span class="pill">Module paradigm</span>
-          <h3>Composable abstractions</h3>
-          <p>
-            Every component inherits from a base <code>Module</code> with <em>forward</em>, <em>backward</em>, and
-            <em>step</em> methods. This mirrors the philosophy behind PyTorch’s <code>nn.Module</code> while keeping the code
-            legible.
-          </p>
-        </article>
-        <article class="focus-card reveal-on-scroll">
-          <span class="pill">Layers</span>
-          <h3>Linear, convolutional, activations</h3>
-          <p>
-            Dense and convolutional layers wrap parameter tensors, manage gradients, and expose friendly constructors. Classic
-            activations (ReLU, Tanh, SoftMax) compose naturally.
-          </p>
-        </article>
-        <article class="focus-card reveal-on-scroll">
-          <span class="pill">Training loop</span>
-          <h3>Sequential pipelines</h3>
-          <p>
-            Models chain modules inside a <code>Sequential</code> container. Backpropagation unfolds by iterating layers in
-            reverse, while optimisers adjust parameters module by module.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section section--narrow" id="walkthrough">
-      <h2 class="section-title">From tensors to training</h2>
-      <div class="grid" style="gap: clamp(1.5rem, 3vw, 2.5rem);">
-        <article class="focus-card reveal-on-scroll" style="background: rgba(16, 20, 24, 0.04); box-shadow: none;">
-          <div class="grid" style="gap: 0.75rem;">
-            <strong>1. Define the network</strong>
-            <p>
-              Build your model by stacking modules: convolution → activation → pooling → linear → softmax. Each module stores
-              parameters and caches activations needed during backpropagation.
-            </p>
-          </div>
-        </article>
-        <article class="focus-card reveal-on-scroll" style="background: rgba(16, 20, 24, 0.04); box-shadow: none;">
-          <div class="grid" style="gap: 0.75rem;">
-            <strong>2. Propagate &amp; compute loss</strong>
-            <p>
-              Execute <code>forward(x)</code> to obtain predictions, then evaluate a differentiable loss (e.g. cross-entropy).
-              The loss exposes a gradient with respect to its inputs.
-            </p>
-          </div>
-        </article>
-        <article class="focus-card reveal-on-scroll" style="background: rgba(16, 20, 24, 0.04); box-shadow: none;">
-          <div class="grid" style="gap: 0.75rem;">
-            <strong>3. Backpropagate &amp; update</strong>
-            <p>
-              Call <code>backward(grad)</code> starting from the loss gradient. Each module computes parameter gradients,
-              accumulates them, and passes the upstream gradient backward. Finally, <code>step()</code> applies SGD or another
-              optimiser.
-            </p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section section--narrow" id="resources">
-      <h2 class="section-title">Resources &amp; next steps</h2>
-      <div class="grid" style="gap: clamp(1.5rem, 3vw, 2.5rem);">
-        <article class="contact-card reveal-on-scroll">
-          <strong>GitHub repository</strong>
-          <p>
-            Explore the full implementation, unit tests, and example notebooks in the
-            <a href="https://github.com/emilemathieu/ImageClassificationChallenge/tree/master/code/mllib" target="_blank" rel="noopener">ImageClassificationChallenge</a>
-            repository.
-          </p>
-        </article>
-        <article class="contact-card reveal-on-scroll">
-          <strong>Further reading</strong>
-          <p>
-            Stanford’s <a href="http://cs231n.github.io/" target="_blank" rel="noopener">CS231n</a> notes pair nicely with this
-            tutorial, reinforcing convolutional intuition and vector calculus fundamentals.
-          </p>
-        </article>
-        <article class="contact-card reveal-on-scroll">
-          <strong>Teach with it</strong>
-          <p>
-            I’ve used this minimal library in workshops to show how alignment-specific loss functions can be inserted into
-            familiar training pipelines. Feel free to reuse with attribution.
-          </p>
-        </article>
-      </div>
+    <section class="intro">
+      <h1 class="intro__headline">Archived Essay</h1>
+      <p class="intro__lead">The historical post that lived at this URL is being edited for clarity and to reflect current research directions.</p>
+      <p class="smaller">Please check back soon or reach out via <a href="mailto:jeanfrancois287@hotmail.fr">jeanfrancois287@hotmail.fr</a> if you need the previous version for reference.</p>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="site-footer__inner">
-      <p>© <span id="year"></span> Jean-François Ton. Crafted for GitHub Pages.</p>
-      <div class="social-links" aria-label="Social links">
-        <a href="https://scholar.google.com/citations?user=WWVOu4kAAAAJ" target="_blank" rel="noopener">Scholar</a>
-        <a href="https://github.com/sAviOr287" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/jean-fran%C3%A7ois-ton-b172a5102/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
+  <footer class="footer">
+    <div class="footer__inner">
+      <span>© <span id="year"></span> Jean-François Ton</span>
+      <ul class="list-inline" aria-label="Footer links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#research">Research</a></li>
+        <li><a href="works.html">Publications</a></li>
+        <li><a href="#top">Top</a></li>
+      </ul>
     </div>
   </footer>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>

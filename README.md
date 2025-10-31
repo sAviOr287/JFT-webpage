@@ -1,34 +1,21 @@
-# Jean-François Ton — Research Website
+# Jean-François Ton — Academic Website
 
-This repository contains the source for the personal research website hosted on GitHub Pages at [https://savior287.github.io/JFT-webpage/](https://savior287.github.io/JFT-webpage/).
+This repository contains the static assets for the personal academic website published at [https://savior287.github.io/JFT-webpage/](https://savior287.github.io/JFT-webpage/).
 
 ## Structure
 
-- `index.html` — landing page with the latest highlights, research focus, and quick contact details.
-- `works.html` — interactive research library with filters powered by `data/papers.json` and `js/papers.js`.
-- `contact.html` — collaboration and speaking enquiries.
-- `data/papers.json` — single source of truth for publication metadata.
-- `css/` — modern component-based design system (`base.css`, `layout.css`, `theme.css`).
-- `js/reveal.js` — accessibility-aware scroll animations.
-- `js/papers.js` — renders publication cards and filter controls on demand.
-- `scripts/make_paper_thumbnails.py` — utility to regenerate paper artwork.
+- `index.html` — homepage with bio, research interests, recent publications, and contact links.
+- `works.html` — curated publication lists grouped by research theme; edit the HTML directly to add or reorder entries.
+- `contact.html` — single source for email and professional networks.
+- `blog*.html`, `misc.html`, `poetry.html` — placeholder pages preserved for future writing archives.
+- `css/site.css` — lightweight styling shared across the site.
 
-## Updating publications
+## Editing content
 
-1. Edit `data/papers.json` and add or update an entry. Each object supports:
-   - `id`: unique slug used for thumbnails.
-   - `title`, `authors`, `venue`, `date`, and optional `display_date` or `summary`.
-   - `tags`: controls the filters available on the Works page.
-   - `thumbnail`: path to a `.svg` generated asset or custom image.
-   - `links`: dictionary with keys such as `arxiv`, `pdf`, `code`, etc.
-2. Run the thumbnail generator (optional but recommended when using SVG thumbnails):
-
-   ```bash
-   python3 scripts/make_paper_thumbnails.py
-   ```
-
-   The script creates branded 16:9 SVGs in `Images/papers/` for any entry referencing an SVG thumbnail path.
-3. Commit the JSON and artwork changes; the homepage and Works page will update automatically because they read from the JSON file at runtime.
+- Update text directly in the relevant HTML file; each section is intentionally short and separated by descriptive headings.
+- Publications appear as simple `<li>` items inside `.publication-list`. Duplicate one of the existing list items and edit the title, venue, and authors.
+- Add new research interests by copying a `<li class="tag">…</li>` element inside the `tag-list`.
+- Navigation links reference section IDs (e.g., `#about`, `#contact`); keep these IDs unchanged unless you also update the menu.
 
 ## Local preview
 

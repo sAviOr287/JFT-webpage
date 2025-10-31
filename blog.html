@@ -3,127 +3,42 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jean-François Ton — Writing</title>
-  <meta
-    name="description"
-    content="Essays, tutorials, and city notes from Jean-François Ton covering machine learning practice and creative side projects."
-  />
+  <title>Jean-François Ton — Notes</title>
+  <meta name="description" content="Working notes and essays by Jean-François Ton. The archive is currently being reorganised." />
   <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/layout.css" />
-  <link rel="stylesheet" href="css/theme.css" />
-  <script defer src="js/reveal.js"></script>
-  <script defer src="js/papers.js"></script>
+  <link rel="stylesheet" href="css/site.css" />
 </head>
 <body>
-  <header class="site-header" id="top">
-    <div class="site-header__inner">
-      <a class="logo" href="index.html" aria-label="Jean-François Ton home">JF TON</a>
-      <nav class="nav" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="works.html">Research</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
+  <header id="top" class="site-header">
+    <p class="site-header__title"><a href="index.html">Jean-François Ton</a></p>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html#about">About</a>
+      <a href="index.html#research">Research</a>
+      <a href="works.html">Publications</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="grid" style="gap: clamp(1.75rem, 3.5vw, 2.5rem);">
-        <span class="badge">Field notes &amp; essays</span>
-        <h1 class="hero__headline">Exploring practical alignment, hands-on ML, and the occasional Oxford detour.</h1>
-        <p class="hero__description">
-          These pieces capture experiments that shaped my approach to post-training large language models—ranging from
-          minimal deep learning libraries, to kernel SVM solvers, to reflections penned while wandering between UK beer
-          gardens.
-        </p>
-        <div class="hero__meta" style="gap: 1rem;">
-          <a class="button" href="#featured">Read the highlights</a>
-          <a class="button button--ghost" href="contact.html">Request a talk or workshop</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--narrow" id="featured">
-      <h2 class="section-title">Featured writing</h2>
-      <div class="focus-grid">
-        <article class="focus-card reveal-on-scroll">
-          <span class="pill">Tutorial</span>
-          <h3>A minimal deep learning library in Python</h3>
-          <p>
-            How modular abstractions, backpropagation, and clean optimisation loops come together when you build a
-            toy-but-functional framework from scratch.
-          </p>
-          <div class="hero__meta" style="gap: 0.75rem;">
-            <a class="button button--ghost" href="blog_cnn.html">Read the walkthrough →</a>
-          </div>
-        </article>
-        <article class="focus-card reveal-on-scroll">
-          <span class="pill">Tutorial</span>
-          <h3>Soft-margin kernel SVMs, demystified</h3>
-          <p>
-            A concise tour of dual objectives, kernels, and numerical tricks that make large-scale SVM classifiers feel
-            lightweight in Python.
-          </p>
-          <div class="hero__meta" style="gap: 0.75rem;">
-            <a class="button button--ghost" href="blog_svm.html">Study the solver →</a>
-          </div>
-        </article>
-        <article class="focus-card reveal-on-scroll">
-          <span class="pill">City guide</span>
-          <h3>Ten Oxford beer gardens worth the wander</h3>
-          <p>
-            Notes from summers spent cycling between the Isis, Port Meadow, and Jericho—complete with a curated map and
-            the ambience each stop offers.
-          </p>
-          <div class="hero__meta" style="gap: 0.75rem;">
-            <a class="button button--ghost" href="blog_pubs.html">Plan the crawl →</a>
-          </div>
-        </article>
-        <article class="focus-card reveal-on-scroll">
-          <span class="pill">Creative</span>
-          <h3>Poetry written between experiments</h3>
-          <p>
-            Short verse composed alongside research sprints—capturing moments of inspiration, restlessness, and wonder.
-          </p>
-          <div class="hero__meta" style="gap: 0.75rem;">
-            <a class="button button--ghost" href="poetry.html">Read the poems →</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section section--narrow" id="updates">
-      <h2 class="section-title">What’s next</h2>
-      <div class="grid" style="gap: clamp(1.5rem, 3vw, 2.5rem);">
-        <article class="contact-card reveal-on-scroll">
-          <strong>Upcoming posts</strong>
-          <p>
-            I’m currently drafting write-ups on preference optimisation pipelines, multi-agent evaluation, and the
-            research tooling I rely on when iterating with LLM teams.
-          </p>
-        </article>
-        <article class="contact-card reveal-on-scroll">
-          <strong>Stay in the loop</strong>
-          <p>
-            Follow along via <a href="https://scholar.google.com/citations?user=WWVOu4kAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
-            for formal publications, or reach out directly for bespoke workshops on RLHF and alignment.
-          </p>
-        </article>
-      </div>
+    <section class="intro">
+      <h1 class="intro__headline">Notes &amp; Essays</h1>
+      <p class="intro__lead">I am reorganising past writing to reflect recent work on alignment and responsible AI. Updated essays will appear here soon.</p>
+      <p class="smaller">If you are looking for specific material (e.g., lecture notes or kernel methods tutorials), please email <a href="mailto:jeanfrancois287@hotmail.fr">jeanfrancois287@hotmail.fr</a> and I will share the relevant documents.</p>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="site-footer__inner">
-      <p>© <span id="year"></span> Jean-François Ton. Crafted for GitHub Pages.</p>
-      <div class="social-links" aria-label="Social links">
-        <a href="https://scholar.google.com/citations?user=WWVOu4kAAAAJ" target="_blank" rel="noopener">Scholar</a>
-        <a href="https://github.com/sAviOr287" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/jean-fran%C3%A7ois-ton-b172a5102/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
+  <footer class="footer">
+    <div class="footer__inner">
+      <span>© <span id="year"></span> Jean-François Ton</span>
+      <ul class="list-inline" aria-label="Footer links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#research">Research</a></li>
+        <li><a href="works.html">Publications</a></li>
+        <li><a href="#top">Top</a></li>
+      </ul>
     </div>
   </footer>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
