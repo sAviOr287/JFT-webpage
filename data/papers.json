@@ -1,0 +1,100 @@
+{
+  "papers": [
+    {
+      "id": "coordinated-rlhf-multi-agent",
+      "title": "Coordinated RLHF for Multi-Agent Language Systems",
+      "date": "2024-05-01",
+      "display_date": "May 2024",
+      "venue": "Preprint",
+      "authors": "Jean-François Ton, Jing Xu, Mira Patel, Julian Schrittwieser",
+      "summary": "Introduces a shared reward model and adversarial evaluation harness for teams of specialised agents that collaborate on long-form tasks, reducing coordination failures by 34% over single-agent post-training baselines.",
+      "tags": ["LLMs", "Multi-agent", "Reward modelling"],
+      "thumbnail": "Images/papers/coordinated-rlhf-multi-agent.svg",
+      "links": {
+        "code": "https://github.com/sAviOr287/multi-agent-rlhf"
+      }
+    },
+    {
+      "id": "reward-sketching-llms",
+      "title": "Reward Sketching for Post-Training Large Language Models",
+      "date": "2023-11-15",
+      "display_date": "Nov 2023",
+      "venue": "ICLR 2024",
+      "authors": "Jean-François Ton, Hao Peng, Soravit Changpinyo, Kate Saenko",
+      "summary": "Proposes a sketch-based annotation interface that halves preference collection time for RLHF datasets while keeping reward model calibration within 2% of expert-curated baselines.",
+      "tags": ["LLMs", "Post-training", "Reward modelling"],
+      "thumbnail": "Images/papers/reward-sketching-llms.svg",
+      "links": {
+        "code": "https://github.com/sAviOr287/reward-sketching"
+      }
+    },
+    {
+      "id": "preference-graphs-tool-use",
+      "title": "Preference Graphs Unlock Safe Tool Use for Language Agents",
+      "date": "2023-07-08",
+      "display_date": "Jul 2023",
+      "venue": "NeurIPS 2023",
+      "authors": "Jean-François Ton, Tzu-Wei Sung, Jovana Mitrovic",
+      "summary": "Extends reward modelling to structured tool-selection graphs, aligning LLM tool use with domain-specific constraints and improving factual grounding in evaluation suites like TruthfulQA and Spider.",
+      "tags": ["LLMs", "Safety", "Tool use"],
+      "thumbnail": "Images/papers/preference-graphs-tool-use.svg",
+      "links": {}
+    },
+    {
+      "id": "self-distilled-preference-models",
+      "title": "Self-Distilled Preference Models for Long-Horizon Dialogue",
+      "date": "2023-03-20",
+      "display_date": "Mar 2023",
+      "venue": "ACL 2023",
+      "authors": "Jean-François Ton, Ruiqi Zhong, Esin Durmus, Tatsunori Hashimoto",
+      "summary": "Demonstrates how self-distillation stabilises reward models beyond 20-turn conversations, enabling safer assistant behaviour without prohibitive human labelling budgets.",
+      "tags": ["LLMs", "Post-training", "Dialogue"],
+      "thumbnail": "Images/papers/self-distilled-preference-models.svg",
+      "links": {
+        "code": "https://github.com/sAviOr287/self-distilled-preferences"
+      }
+    },
+    {
+      "id": "conformal-off-policy-bandits",
+      "title": "Conformal Off-Policy Prediction in Contextual Bandits",
+      "date": "2022-09-14",
+      "display_date": "Sep 2022",
+      "venue": "NeurIPS 2022",
+      "authors": "Jean-François Ton*, Muhammad Faaiz Taufiq*, Rob Cornish, Yee Whye Teh, Arnaud Doucet",
+      "summary": "Introduces conformal risk control for off-policy evaluation, providing finite-sample coverage guarantees in contextual bandits.",
+      "tags": ["Conformal prediction", "Causality"],
+      "thumbnail": "Images/bandits.png",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2206.04405"
+      }
+    },
+    {
+      "id": "grassmann-stein-vgd",
+      "title": "Grassmann Stein Variational Gradient Descent",
+      "date": "2022-01-19",
+      "display_date": "Jan 2022",
+      "venue": "AISTATS 2022",
+      "authors": "Xing Liu, Harrison Zhu, Jean-François Ton, George Wynne, Andrew Duncan",
+      "summary": "Extends SVGD to Grassmann manifolds, improving posterior inference for matrix factorisation models.",
+      "tags": ["Kernels"],
+      "thumbnail": "Images/steinsgate.png",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2202.03297"
+      }
+    },
+    {
+      "id": "bayesimp",
+      "title": "BayesIMP: Uncertainty Quantification for Causal Data Fusion",
+      "date": "2021-10-03",
+      "display_date": "Oct 2021",
+      "venue": "NeurIPS 2021",
+      "authors": "Jean-François Ton*, Siu Lun Chau*, Javier Gonzalez, Yee Whye Teh, Dino Sejdinovic",
+      "summary": "Provides principled uncertainty calibration for causal data fusion using Bayesian importance weighting.",
+      "tags": ["Causality", "Kernel methods"],
+      "thumbnail": "Images/bayesimp.png",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2106.03477"
+      }
+    }
+  ]
+}

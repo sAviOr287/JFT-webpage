@@ -1,0 +1,14 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1280' height='720' viewBox='0 0 1280 720'>
+      <defs>
+        <linearGradient id='grad' x1='0' y1='0' x2='1' y2='1'>
+          <stop offset='0%' stop-color='rgb(246, 200, 70)' />
+          <stop offset='55%' stop-color='rgb(250, 223, 148)' />
+          <stop offset='100%' stop-color='rgb(252, 240, 206)' />
+        </linearGradient>
+      </defs>
+      <rect width='1280' height='720' fill='url(#grad)' rx='48' ry='48' />
+      <circle cx='960' cy='360.0' r='180' fill='rgba(255,255,255,0.22)' />
+      <circle cx='1090' cy='500.0' r='110' fill='rgba(255,255,255,0.35)' />
+      <text x="72" y="212" font-size="64" font-weight="700" fill="rgba(16,20,24,0.94)" font-family="Inter, 'Segoe UI', sans-serif">Coordinated RLHF for</text><text x="72" y="292" font-size="64" font-weight="700" fill="rgba(16,20,24,0.94)" font-family="Inter, 'Segoe UI', sans-serif">Multi-Agent Language</text><text x="72" y="372" font-size="64" font-weight="700" fill="rgba(16,20,24,0.94)" font-family="Inter, 'Segoe UI', sans-serif">Systems</text>
+      <text x="72" y="648" font-size="32" fill="rgba(16,20,24,0.72)" font-family="Inter, 'Segoe UI', sans-serif">LLMs · Multi-agent · Reward modelling</text>
+    </svg>
