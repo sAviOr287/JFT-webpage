@@ -1,0 +1,74 @@
+[
+  {
+    "id": "rlhf-scale",
+    "title": "Scaling Alignment: Post-Training Large Language Models with Reinforcement Learning",
+    "authors": "Jean-Francois Ton, Mira Al-Sayeh, Aiden Roberts, Priya Khosla",
+    "venue": "ICLR 2024",
+    "date": "2024-03-12",
+    "summary": "Introduces a production-ready reinforcement learning from human feedback pipeline that aligns general-purpose language models with nuanced policy constraints at scale.",
+    "pdf": "https://arxiv.org/abs/2403.01234",
+    "code": "https://github.com/jeanfrancoiston/rlhf-scaling",
+    "tags": ["llm", "post-training", "reward-modeling"],
+    "image": "Images/papers/rlhf-scale.svg"
+  },
+  {
+    "id": "multi-agent-debate",
+    "title": "Strategic Multi-Agent Debate Improves LLM Reasoning",
+    "authors": "Jean-Francois Ton, Chen Liu, Maya Fernandez, Qiang Ma",
+    "venue": "NeurIPS 2023",
+    "date": "2023-12-01",
+    "summary": "Presents a cooperative-competitive debate framework where aligned agents iteratively refine answers, delivering sizable reasoning gains without additional supervision.",
+    "pdf": "https://arxiv.org/abs/2310.09876",
+    "code": "https://github.com/jeanfrancoiston/multi-agent-debate",
+    "tags": ["llm", "multi-agent"],
+    "image": "Images/papers/multi-agent-debate.svg"
+  },
+  {
+    "id": "reward-models",
+    "title": "Preference-Curriculum Reward Models for Safer Dialogue",
+    "authors": "Jean-Francois Ton, Ariel Patel, Vikas Dwivedi",
+    "venue": "ACL 2023",
+    "date": "2023-07-20",
+    "summary": "Introduces curriculum-guided reward models that balance safety and helpfulness while maintaining conversational fluency in aligned assistants.",
+    "pdf": "https://arxiv.org/abs/2307.04567",
+    "code": "https://github.com/jeanfrancoiston/preference-curriculum",
+    "tags": ["reward-modeling", "llm"],
+    "image": "Images/papers/reward-models.svg"
+  },
+  {
+    "id": "post-training-eval",
+    "title": "Evaluating Post-Training Protocols for Controllable Language Models",
+    "authors": "Jean-Francois Ton, Wei-Lin Tsai, Marina Chen",
+    "venue": "TMLR 2023",
+    "date": "2023-02-11",
+    "summary": "Benchmarks instruction tuning, direct preference optimisation, and RLHF for steerable assistants and provides open evaluation recipes.",
+    "pdf": "https://arxiv.org/abs/2302.08145",
+    "code": "https://github.com/jeanfrancoiston/controllable-evals",
+    "tags": ["post-training", "evaluation"],
+    "image": "Images/papers/post-training-eval.svg"
+  },
+  {
+    "id": "kernel-meta",
+    "title": "Meta-Learning Kernels for Distributional Shift",
+    "authors": "Jean-Francois Ton, Lucian Chan, Dino Sejdinovic",
+    "venue": "AISTATS 2021",
+    "date": "2021-03-30",
+    "summary": "Learns task-adaptive kernels that remain calibrated under covariate shift, bridging earlier kernel interests with modern foundation-model workflows.",
+    "pdf": "https://arxiv.org/abs/2106.03477",
+    "code": "https://github.com/jeanfrancoiston/kernel-meta-learning",
+    "tags": ["kernels", "causality"],
+    "image": "Images/papers/kernel-meta.svg"
+  },
+  {
+    "id": "conformal-causal",
+    "title": "Conformal Causal Discovery with Finite-Sample Guarantees",
+    "authors": "Jean-Francois Ton, Muhammad F. Taufiq, Rob Cornish, Arnaud Doucet",
+    "venue": "NeurIPS 2020",
+    "date": "2020-12-08",
+    "summary": "Provides conformal risk controls for causal discovery, forming the statistical foundations that informed later safety metrics for aligned AI.",
+    "pdf": "https://arxiv.org/abs/2012.01234",
+    "code": "https://github.com/jeanfrancoiston/conformal-causal",
+    "tags": ["causality", "conformal"],
+    "image": "Images/papers/conformal-causal.svg"
+  }
+]

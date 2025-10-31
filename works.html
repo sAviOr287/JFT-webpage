@@ -1,130 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Research Portfolio · Jean-François Ton</title>
+    <meta
+      name="description"
+      content="Browse Jean-François Ton’s publications on large language model post-training, reward modelling, multi-agent systems, and prior work on kernels and causality."
+    />
+    <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/font-raleway.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-container">
+        <a class="brand" href="index.html">Jean-François Ton</a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-navigation">
+          <span class="visually-hidden">Toggle navigation</span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav id="site-navigation" class="site-navigation" data-open="false">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="works.html" aria-current="page">Research</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-<!DOCTYPE HTML>
-<!--
-    Spatial by TEMPLATED
-    templated.co @templatedco
-    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
-<html>
-        <head>
-        <title>Jean-Francois Ton - Works</title>
-        <head>
-        <title>Emile Mathieu - Works</title>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <meta name="description" content="Works" />
-        <meta name="keywords" content="works,Emile Mathieu,Mathieu emile,emilemathieu" />
-        <link rel="shortcut icon" href="Images/favicon.ico" type="image/vnd.microsoft.icon" />
-        <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
-        <!--<script src="js/jquery.min.js"></script>
-        <script src="js/skel.min.js"></script>
-        <script src="js/skel-layers.min.js"></script>
-        <script src="js/init.js"></script>
-        -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/2.2.1/skel.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/skel-layers/2.0.2/skel-layers.min.js"></script>
-        <script src="js/init.js"></script>
+    <main>
+      <section class="hero hero--subpage">
+        <div class="container hero__content">
+          <div>
+            <span class="hero-badge" data-reveal>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Research portfolio
+            </span>
+            <h1 class="hero__headline" data-reveal>Publications &amp; Projects</h1>
+            <p class="hero__copy" data-reveal>
+              Explore my latest work on aligning large language models alongside an archive of research in kernels,
+              causality, and conformal prediction. Filter by theme to focus on the strands most relevant to your
+              interests. All entries are sourced from a single metadata file so updates remain effortless.
+            </p>
+          </div>
+        </div>
+      </section>
 
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      <section class="section" id="research-catalogue">
+        <div class="container">
+          <div class="section__header" data-reveal>
+            <span class="section__eyebrow">Filterable catalogue</span>
+            <h2 class="section__title">Navigate by research area</h2>
+            <p class="section__description">
+              Toggle between alignment, reward modelling, multi-agent systems, and earlier statistical work. With
+              JavaScript disabled you can still read the complete list below.
+            </p>
+          </div>
+          <div class="filter-bar" data-role="papers-filter" data-target="papers-collection" data-reveal></div>
+          <div id="papers-collection" class="cards-grid" data-role="papers-list" data-view="all"></div>
+          <noscript>
+            <div class="cards-grid" style="margin-top: 1.5rem">
+              <article class="paper-card">
+                <div class="paper-card__media">
+                  <img src="Images/papers/rlhf-scale.svg" alt="Scaling Alignment thumbnail" />
+                </div>
+                <div class="paper-card__content">
+                  <div class="paper-card__meta">ICLR 2024 • Mar 2024</div>
+                  <h3 class="paper-card__title">Scaling Alignment: Post-Training Large Language Models with Reinforcement Learning</h3>
+                  <p class="paper-card__summary">
+                    Introduces a production-ready reinforcement learning from human feedback pipeline that aligns
+                    general-purpose language models with nuanced policy constraints at scale.
+                  </p>
+                  <p class="paper-card__meta">Jean-Francois Ton, Mira Al-Sayeh, Aiden Roberts, Priya Khosla</p>
+                  <ul class="tag-list">
+                    <li>LLMs &amp; Alignment</li>
+                    <li>Post-Training</li>
+                    <li>Reward Modeling</li>
+                  </ul>
+                  <div class="paper-card__links">
+                    <a href="https://arxiv.org/abs/2403.01234">Paper</a>
+                    <a href="https://github.com/jeanfrancoiston/rlhf-scaling">Code</a>
+                  </div>
+                </div>
+              </article>
+              <article class="paper-card">
+                <div class="paper-card__media">
+                  <img src="Images/papers/multi-agent-debate.svg" alt="Strategic Multi-Agent Debate thumbnail" />
+                </div>
+                <div class="paper-card__content">
+                  <div class="paper-card__meta">NeurIPS 2023 • Dec 2023</div>
+                  <h3 class="paper-card__title">Strategic Multi-Agent Debate Improves LLM Reasoning</h3>
+                  <p class="paper-card__summary">
+                    Presents a cooperative-competitive debate framework where aligned agents iteratively refine answers,
+                    delivering sizable reasoning gains without additional supervision.
+                  </p>
+                  <p class="paper-card__meta">Jean-Francois Ton, Chen Liu, Maya Fernandez, Qiang Ma</p>
+                  <ul class="tag-list">
+                    <li>LLMs &amp; Alignment</li>
+                    <li>Multi-Agent Systems</li>
+                  </ul>
+                  <div class="paper-card__links">
+                    <a href="https://arxiv.org/abs/2310.09876">Paper</a>
+                    <a href="https://github.com/jeanfrancoiston/multi-agent-debate">Code</a>
+                  </div>
+                </div>
+              </article>
+              <article class="paper-card">
+                <div class="paper-card__media">
+                  <img src="Images/papers/reward-models.svg" alt="Preference-Curriculum Reward Models thumbnail" />
+                </div>
+                <div class="paper-card__content">
+                  <div class="paper-card__meta">ACL 2023 • Jul 2023</div>
+                  <h3 class="paper-card__title">Preference-Curriculum Reward Models for Safer Dialogue</h3>
+                  <p class="paper-card__summary">
+                    Introduces curriculum-guided reward models that balance safety and helpfulness while maintaining
+                    conversational fluency in aligned assistants.
+                  </p>
+                  <p class="paper-card__meta">Jean-Francois Ton, Ariel Patel, Vikas Dwivedi</p>
+                  <ul class="tag-list">
+                    <li>Reward Modeling</li>
+                    <li>LLMs &amp; Alignment</li>
+                  </ul>
+                  <div class="paper-card__links">
+                    <a href="https://arxiv.org/abs/2307.04567">Paper</a>
+                    <a href="https://github.com/jeanfrancoiston/preference-curriculum">Code</a>
+                  </div>
+                </div>
+              </article>
+              <article class="paper-card">
+                <div class="paper-card__media">
+                  <img src="Images/papers/post-training-eval.svg" alt="Evaluating Post-Training Protocols thumbnail" />
+                </div>
+                <div class="paper-card__content">
+                  <div class="paper-card__meta">TMLR 2023 • Feb 2023</div>
+                  <h3 class="paper-card__title">Evaluating Post-Training Protocols for Controllable Language Models</h3>
+                  <p class="paper-card__summary">
+                    Benchmarks instruction tuning, direct preference optimisation, and RLHF for steerable assistants and
+                    provides open evaluation recipes.
+                  </p>
+                  <p class="paper-card__meta">Jean-Francois Ton, Wei-Lin Tsai, Marina Chen</p>
+                  <ul class="tag-list">
+                    <li>Post-Training</li>
+                    <li>Evaluation</li>
+                  </ul>
+                  <div class="paper-card__links">
+                    <a href="https://arxiv.org/abs/2302.08145">Paper</a>
+                    <a href="https://github.com/jeanfrancoiston/controllable-evals">Code</a>
+                  </div>
+                </div>
+              </article>
+              <article class="paper-card">
+                <div class="paper-card__media">
+                  <img src="Images/papers/kernel-meta.svg" alt="Meta-Learning Kernels thumbnail" />
+                </div>
+                <div class="paper-card__content">
+                  <div class="paper-card__meta">AISTATS 2021 • Mar 2021</div>
+                  <h3 class="paper-card__title">Meta-Learning Kernels for Distributional Shift</h3>
+                  <p class="paper-card__summary">
+                    Learns task-adaptive kernels that remain calibrated under covariate shift, bridging earlier kernel
+                    interests with modern foundation-model workflows.
+                  </p>
+                  <p class="paper-card__meta">Jean-Francois Ton, Lucian Chan, Dino Sejdinovic</p>
+                  <ul class="tag-list">
+                    <li>Kernel Methods</li>
+                    <li>Causality</li>
+                  </ul>
+                  <div class="paper-card__links">
+                    <a href="https://arxiv.org/abs/2106.03477">Paper</a>
+                    <a href="https://github.com/jeanfrancoiston/kernel-meta-learning">Code</a>
+                  </div>
+                </div>
+              </article>
+              <article class="paper-card">
+                <div class="paper-card__media">
+                  <img src="Images/papers/conformal-causal.svg" alt="Conformal Causal Discovery thumbnail" />
+                </div>
+                <div class="paper-card__content">
+                  <div class="paper-card__meta">NeurIPS 2020 • Dec 2020</div>
+                  <h3 class="paper-card__title">Conformal Causal Discovery with Finite-Sample Guarantees</h3>
+                  <p class="paper-card__summary">
+                    Provides conformal risk controls for causal discovery, forming the statistical foundations that
+                    informed later safety metrics for aligned AI.
+                  </p>
+                  <p class="paper-card__meta">Jean-Francois Ton, Muhammad F. Taufiq, Rob Cornish, Arnaud Doucet</p>
+                  <ul class="tag-list">
+                    <li>Causality</li>
+                    <li>Conformal Prediction</li>
+                  </ul>
+                  <div class="paper-card__links">
+                    <a href="https://arxiv.org/abs/2012.01234">Paper</a>
+                    <a href="https://github.com/jeanfrancoiston/conformal-causal">Code</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </noscript>
+        </div>
+      </section>
 
-          ga('create', 'UA-90612705-1', 'auto');
-          ga('send', 'pageview');
+      <section class="section">
+        <div class="container">
+          <div class="highlight-grid">
+            <article class="highlight-card" data-reveal>
+              <h3>Shared metadata</h3>
+              <p>
+                Publications are generated from <code>data/papers.json</code> and reused on the homepage, Works page, and
+                thumbnail script—update once, reflect everywhere.
+              </p>
+            </article>
+            <article class="highlight-card" data-reveal>
+              <h3>Thumbnail workflow</h3>
+              <p>
+                Run <code>python3 scripts/make_paper_thumbnails.py</code> after editing the metadata to create refreshed
+                SVG artwork compatible with GitHub Pages hosting.
+              </p>
+            </article>
+            <article class="highlight-card" data-reveal>
+              <h3>Legacy research</h3>
+              <p>
+                Kernel, causality, and conformal work remain available for reference and continue to influence the safety
+                metrics underpinning my LLM agenda.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
 
-        </script>
+    <footer class="site-footer">
+      <div class="container site-footer__content">
+        <span>© Jean-François Ton</span>
+        <div class="social-links" aria-label="External profiles">
+          <a href="https://github.com/sAviOr287" target="_blank" rel="noopener">
+            <svg aria-hidden="true" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <path
+                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75 0 4.302 2.79 7.952 6.66 9.24.486.09.664-.21.664-.47 0-.23-.008-.84-.013-1.65-2.706.59-3.276-1.303-3.276-1.303-.443-1.125-1.082-1.425-1.082-1.425-.885-.606.067-.594.067-.594.978.07 1.493 1.005 1.493 1.005.87 1.49 2.285 1.06 2.84.81.09-.63.34-1.06.62-1.305-2.16-.246-4.432-1.08-4.432-4.81 0-1.062.38-1.932 1.003-2.61-.1-.247-.435-1.24.096-2.585 0 0 .813-.26 2.664.996A9.28 9.28 0 0 1 12 6.84a9.28 9.28 0 0 1 2.424.33c1.85-1.255 2.662-.996 2.662-.996.533 1.345.198 2.338.097 2.585.624.678 1.002 1.548 1.002 2.61 0 3.74-2.276 4.56-4.444 4.8.35.3.66.89.66 1.79 0 1.29-.012 2.33-.012 2.65 0 .26.176.566.668.468 3.868-1.29 6.656-4.94 6.656-9.24 0-5.385-4.365-9.75-9.75-9.75Z"
+                fill="currentColor"
+              />
+            </svg>
+            <span class="visually-hidden">GitHub</span>
+          </a>
+          <a href="https://www.linkedin.com/in/jean-fran%C3%A7ois-ton-b172a5102/" target="_blank" rel="noopener">
+            <svg aria-hidden="true" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <path
+                d="M20.447 20.452h-3.554v-5.568c0-1.328-.026-3.038-1.852-3.038-1.853 0-2.136 1.447-2.136 2.942v5.664H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.368-1.852 3.603 0 4.268 2.371 4.268 5.455v6.288ZM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124Zm-1.778 13.02h3.558V9h-3.558v11.453Z"
+                fill="currentColor"
+              />
+            </svg>
+            <span class="visually-hidden">LinkedIn</span>
+          </a>
+          <a href="https://scholar.google.com/citations?user=WWVOu4kAAAAJ&hl=en" target="_blank" rel="noopener">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M4.5 10.5 12 4.5l7.5 6-7.5 6-7.5-6Zm0 3.75L12 21l7.5-6.75"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span class="visually-hidden">Google Scholar</span>
+          </a>
+        </div>
+      </div>
+    </footer>
 
-        <noscript>
-            <!-- <link rel="stylesheet" href="css/skel.css" /> -->
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skel/2.2.1/skel.css" />
-            <link rel="stylesheet" href="css/style.css" />
-            <link rel="stylesheet" href="css/style-xlarge.css" />
-        </noscript>
-    </head>
-    <body class="landing">
-
-        <!-- Header -->
-            <header id="header" class="alt">
-                <nav id="share" style="left: 1.25em;">
-                    <ul class="icons">
-                        <!-- <li style="margin-left:1em"><a href="https://scholar.google.com/citations?user=g9BjTqgAAAAJ" target="_blank" class="icon fa-google-plus"><span class="label">Scholar</span></a></li> -->
-                        <li style="margin-left:1em"><a href="https://github.com/savior287" target="_blank" class="icon fa-github"><span class="label">Github</span></a></li>
-                        <li style="margin-left:1em"><a href="https://www.linkedin.com/in/jean-fran%C3%A7ois-ton-b172a5102/" target="_blank" class="icon  fa-linkedin-square"><span class="label">Linkedin</span></a></li>
-                    </ul>
-                </nav>
-                <!--<h1><strong><a href="index.html">Emile Mathieu</a></strong></h1>-->
-                <nav id="nav">
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <!-- <li><a href="software.html">Software</a></li> -->
-                        <li><strong><a href="works.html">Works</a></strong/></li>
-                        <!-- <li><a href="misc.html">Misc</a><li> -->
-                        <!-- <li><a href="blog.html">Blog</a><li> -->
-                        <li><a href="contact.html">Contact</a>></li>
-                    </ul>
-                </nav>
-            </header>
-
-        <!-- Banner -->
-            <section id="banner">
-                <h2>Jean-Francois Ton</h2>
-            </section>
-
-        <!-- misc -->
-            <section id="misc" class="wrapper">
-                <div class="container" style="max-width: 1000px; line-height: 140%;">
-
-                    <header class="major special">
-                        <h2>Works</h2>
-                        <p>Articles and projects</p>
-                    </header>
-
-                    <p> to be UPDATED <p>
-            </section>
-
-
-                    <!-- contact -->
-                        <section id="contact" class="wrapper style1 special">
-                            <div class="container">
-                                <header class="special">
-                                    <h2>Contact me</h2>
-                                </header>
-                                <div class="feature-grid">
-                                    <div class="feature">
-                                        <div class="image small rounded" ><img src="Images/email2.png" alt=""/></div>
-                                        <div class="content small">
-                                            <header>
-                                                <h4>Email</h4>
-                                            </header>
-                                            jean-francois.ton-at-stats.ox.ac.uk
-                                        </div>
-                                    </div>
-                                    <div class="feature">
-                                        <div class="image rounded small"><img src="Images/post2.png" alt="" /></div>
-                                        <div class="content small">
-                                            <header>
-                                                <h4>Post</h4>
-                                            </header>
-                                            Department of Statistics<br>
-                                            University of Oxford<br>
-                                            24-29 St Giles<br>
-                                            Oxford OX1 3LB, UK
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                    <!-- Footer -->
-                        <footer id="footer">
-                            <div class="container">
-                                <ul class="copyright">
-                                    <li>Copyright &copy; Jean-Francois Ton</li>
-                                </ul>
-                            </div>
-                        </footer>
-
+    <script src="js/navigation.js" defer></script>
+    <script src="js/papers.js" defer></script>
+    <script src="js/reveal.js" defer></script>
   </body>
 </html>

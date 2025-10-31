@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9AF87A" />
+      <stop offset="100%" stop-color="#123C2A" />
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#gradient)" rx="32" />
+  <rect x="32" y="32" width="1216" height="656" fill="rgba(0,0,0,0.18)" rx="28" />
+  <text x="64" y="120" font-size="32" font-family="Raleway, Helvetica, Arial, sans-serif" font-weight="600" fill="#ffffff">Evaluating Post-Training</text>
+  <text x="64" y="162" font-size="32" font-family="Raleway, Helvetica, Arial, sans-serif" font-weight="600" fill="#ffffff">Protocols for Controllable</text>
+  <text x="64" y="204" font-size="32" font-family="Raleway, Helvetica, Arial, sans-serif" font-weight="600" fill="#ffffff">Language Models</text>
+  <text x="64" y="270" font-size="20" font-family="Inter, Helvetica, Arial, sans-serif" fill="rgba(255,255,255,0.78)">Post-Training, Evaluation</text>
+</svg>
