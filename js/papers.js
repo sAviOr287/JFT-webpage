@@ -1,34 +1,63 @@
-(async function () {
+const featuredContainer = document.querySelector('[data-papers-target="featured"]');
+const libraryContainer = document.querySelector('[data-papers-target="library"]');
+const filtersContainer = document.querySelector('[data-papers-filters]');
+const featuredFallback = featuredContainer?.querySelector('[data-paper-error]') || null;
+
+if (featuredFallback) {
+  featuredFallback.hidden = true;
+}
+
+(async function loadPapers() {
   const response = await fetch('data/papers.json');
   if (!response.ok) {
-    return;
+    throw new Error(`Failed to load papers: ${response.status}`);
   }
 
   const payload = await response.json();
   const papers = (payload.papers || []).slice().sort((a, b) => new Date(b.date) - new Date(a.date));
 
-  const featuredContainer = document.querySelector('[data-papers-target="featured"]');
   if (featuredContainer) {
     const featured = papers.filter((paper) => paper.featured !== false).slice(0, 4);
     renderPapers(featured, featuredContainer);
   }
-
-  const libraryContainer = document.querySelector('[data-papers-target="library"]');
-  const filtersContainer = document.querySelector('[data-papers-filters]');
 
   if (libraryContainer) {
     renderPapers(papers, libraryContainer);
   }
 
   if (filtersContainer && libraryContainer) {
+    filtersContainer.removeAttribute('hidden');
+    filtersContainer.removeAttribute('aria-hidden');
     initialiseFilters(papers, filtersContainer, libraryContainer);
   }
-})();
+})().catch((error) => {
+  clearContainer(featuredContainer, featuredFallback);
+  clearContainer(libraryContainer);
+
+  if (filtersContainer) {
+    filtersContainer.replaceChildren();
+    filtersContainer.setAttribute('hidden', 'true');
+    filtersContainer.setAttribute('aria-hidden', 'true');
+  }
+
+  if (featuredFallback) {
+    featuredFallback.hidden = false;
+  }
+
+  console.error('Failed to load papers data.', error);
+});
 
 function renderPapers(list, container) {
-  container.innerHTML = '';
+  const fallback = container.querySelector('[data-paper-error]');
+  clearContainer(container, fallback);
+  if (fallback) {
+    fallback.hidden = true;
+  }
   if (!list.length) {
-    container.innerHTML = '<p class="text-muted">No papers available yet.</p>';
+    const emptyMessage = document.createElement('p');
+    emptyMessage.className = 'text-muted';
+    emptyMessage.textContent = 'No papers available yet.';
+    container.appendChild(emptyMessage);
     return;
   }
 
@@ -74,6 +103,23 @@ function renderPapers(list, container) {
   if (typeof window.__applyReveal === 'function') {
     window.__applyReveal(container);
   }
+}
+
+function clearContainer(container, preserveNode) {
+  if (!container) {
+    return;
+  }
+
+  if (!preserveNode) {
+    container.replaceChildren();
+    return;
+  }
+
+  Array.from(container.children).forEach((child) => {
+    if (child !== preserveNode) {
+      child.remove();
+    }
+  });
 }
 
 function initialiseFilters(papers, filtersContainer, libraryContainer) {
