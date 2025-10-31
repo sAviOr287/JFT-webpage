@@ -134,6 +134,11 @@
   align-items: start;
 }
 
+.papers-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
 .paper-card__image {
   border-radius: 1rem;
   overflow: hidden;

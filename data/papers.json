@@ -1,99 +1,486 @@
 {
   "papers": [
     {
-      "id": "coordinated-rlhf-multi-agent",
-      "title": "Coordinated RLHF for Multi-Agent Language Systems",
-      "date": "2024-05-01",
-      "display_date": "May 2024",
-      "venue": "Preprint",
-      "authors": "Jean-François Ton, Jing Xu, Mira Patel, Julian Schrittwieser",
-      "summary": "Introduces a shared reward model and adversarial evaluation harness for teams of specialised agents that collaborate on long-form tasks, reducing coordination failures by 34% over single-agent post-training baselines.",
-      "tags": ["LLMs", "Multi-agent", "Reward modelling"],
-      "thumbnail": "Images/papers/coordinated-rlhf-multi-agent.svg",
+      "id": "how-to-train-a-leader-hierarchical-reasoning-in-multi-agent-llms",
+      "title": "How to Train a Leader: Hierarchical Reasoning in Multi-Agent LLMs",
+      "date": "2025-01-01",
+      "display_date": "2025",
+      "venue": "arXiv preprint arXiv:2507.08960",
+      "authors": "A Estornell*, JF Ton*, MF Taufiq*, H Li",
+      "tags": [
+        "LLM Alignment",
+        "Multi-Agent Systems"
+      ],
       "links": {
-        "code": "https://github.com/sAviOr287/multi-agent-rlhf"
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:maZDTaKrznsC"
       }
     },
     {
-      "id": "reward-sketching-llms",
-      "title": "Reward Sketching for Post-Training Large Language Models",
-      "date": "2023-11-15",
-      "display_date": "Nov 2023",
+      "id": "model-training-of-actor-model-and-critic-model",
+      "title": "Model training of actor model and critic model",
+      "date": "2025-01-01",
+      "display_date": "2025",
+      "venue": "US Patent App. 18/936,628",
+      "authors": "A Estornell, TON Jean-Francois, Y Yao, Y Liu",
+      "tags": [
+        "Patent"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:iH-uZ7U-co4C"
+      }
+    },
+    {
+      "id": "reusing-embeddings-reproducible-reward-model-research-in-large-language-model-alignment-without-gpus",
+      "title": "Reusing Embeddings: Reproducible Reward Model Research in Large Language Model Alignment without GPUs",
+      "date": "2025-01-01",
+      "display_date": "2025",
+      "venue": "arXiv preprint arXiv:2502.04357",
+      "authors": "H Sun, Y Shen, JF Ton, M van der Schaar",
+      "tags": [
+        "LLM Alignment",
+        "Preference Learning"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:j3f4tGmQtD8C"
+      }
+    },
+    {
+      "id": "method-computer-readable-medium-recommendation-system-electronic-device-for-debiasing-data",
+      "title": "Method, computer readable medium, recommendation system, electronic device for debiasing data",
+      "date": "2025-01-01",
+      "display_date": "2025",
+      "venue": "US Patent App. 18/747,267",
+      "authors": "TON Jean-Francois, Y Mengyue",
+      "tags": [
+        "Patent",
+        "Recommender Systems",
+        "Responsible AI"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:_Qo2XoVZTnwC"
+      }
+    },
+    {
+      "id": "machine-learning-model-evaluation",
+      "title": "Machine learning model evaluation",
+      "date": "2025-01-01",
+      "display_date": "2025",
+      "venue": "US Patent App. 18/885,135",
+      "authors": "Y Yao, J Wei, TON Jean-Francois, H Guo, A Estornell, Y Liu",
+      "tags": [
+        "Patent"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:e5wmG9Sq2KIC"
+      }
+    },
+    {
+      "id": "active-reward-modeling-adaptive-preference-labeling-for-large-language-model-alignment",
+      "title": "Active Reward Modeling: Adaptive Preference Labeling for Large Language Model Alignment",
+      "date": "2025-01-01",
+      "display_date": "2025",
+      "venue": "Forty-second International Conference on Machine Learning",
+      "authors": "Y Shen*, H Sun*, JF Ton",
+      "tags": [
+        "LLM Alignment",
+        "Preference Learning"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:TFP_iSt0sucC"
+      }
+    },
+    {
+      "id": "acc-collab-an-actor-critic-approach-to-multi-agent-llm-collaboration",
+      "title": "ACC-collab: An actor-critic approach to multi-agent LLM collaboration",
+      "date": "2025-01-01",
+      "display_date": "2025",
+      "venue": "The Thirteenth International Conference on Learning Representations",
+      "authors": "A Estornell*, JF Ton*, Y Yao, Y Liu",
+      "tags": [
+        "LLM Alignment",
+        "Multi-Agent Systems"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:bEWYMUwI8FkC"
+      }
+    },
+    {
+      "id": "understanding-chain-of-thought-in-llms-through-information-theory",
+      "title": "Understanding Chain-of-Thought in LLMs through Information Theory",
+      "date": "2024-01-01",
+      "display_date": "2024",
+      "venue": "arXiv preprint arXiv:2411.11984",
+      "authors": "JF Ton*, MF Taufiq*, Y Liu",
+      "tags": [
+        "LLM Alignment"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:R3hNpaxXUhUC"
+      }
+    },
+    {
+      "id": "system-and-method-for-concept-removal",
+      "title": "System and method for concept removal",
+      "date": "2024-01-01",
+      "display_date": "2024",
+      "venue": "US Patent App. 18/658,582",
+      "authors": "Y KLOCHKOV, TON Jean-Francois, R Guo, Y Liu, H Li",
+      "tags": [
+        "Patent"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:TQgYirikUcIC"
+      }
+    },
+    {
+      "id": "rethinking-bradley-terry-models-in-preference-based-reward-modeling-foundations-theory-and-alternatives",
+      "title": "Rethinking Bradley-Terry Models in Preference-Based Reward Modeling: Foundations, Theory, and Alternatives",
+      "date": "2024-01-01",
+      "display_date": "2024",
+      "venue": "ICLR 2025 (The Thirteenth International Conference on Learning Representations)",
+      "authors": "H Sun*, Y Shen*, JF Ton",
+      "tags": [
+        "LLM Alignment",
+        "Preference Learning"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:mB3voiENLucC"
+      }
+    },
+    {
+      "id": "conformal-counterfactual-inference-under-hidden-confounding",
+      "title": "Conformal Counterfactual Inference under Hidden Confounding",
+      "date": "2024-01-01",
+      "display_date": "2024",
+      "venue": "Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and …",
+      "authors": "Z Chen, R Guo, JF Ton, Y Liu",
+      "tags": [
+        "Causality",
+        "Uncertainty"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:ZeXyd9-uunAC"
+      }
+    },
+    {
+      "id": "overcoming-reward-overoptimization-via-adversarial-policy-optimization-with-lightweight-uncertainty-estimation",
+      "title": "Overcoming Reward Overoptimization via Adversarial Policy Optimization with Lightweight Uncertainty Estimation",
+      "date": "2024-01-01",
+      "display_date": "2024",
+      "venue": "Neurips 2024 (Conference on Neural Information Processing Systems)",
+      "authors": "X Zhang*, JF Ton*, W Shen, H Wang, Y Liu",
+      "tags": [
+        "Preference Learning",
+        "Reinforcement Learning",
+        "Uncertainty"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:dhFuZR0502QC"
+      }
+    },
+    {
+      "id": "measuring-and-reducing-llm-hallucination-without-gold-standard-answers",
+      "title": "Measuring and reducing llm hallucination without gold-standard answers",
+      "date": "2024-01-01",
+      "display_date": "2024",
+      "venue": "arXiv preprint arXiv:2402.10412",
+      "authors": "J Wei, Y Yao, JF Ton, H Guo, A Estornell, Y Liu",
+      "tags": [
+        "LLM Alignment"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:Wp0gIr-vW9MC"
+      }
+    },
+    {
+      "id": "achievable-fairness-on-your-data-with-utility-guarantees",
+      "title": "Achievable Fairness on Your Data With Utility Guarantees",
+      "date": "2024-01-01",
+      "display_date": "2024",
+      "venue": "The Thirty-eighth Annual Conference on Neural Information Processing Systems",
+      "authors": "MF Taufiq, JF Ton, Y Liu",
+      "tags": [
+        "Responsible AI"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:hFOr9nPyWt4C"
+      }
+    },
+    {
+      "id": "marginal-density-ratio-for-off-policy-evaluation-in-contextual-bandits",
+      "title": "Marginal Density Ratio for Off-Policy Evaluation in Contextual Bandits",
+      "date": "2023-01-01",
+      "display_date": "2023",
+      "venue": "Neurips 2023 (Conference on Neural Information Processing Systems)",
+      "authors": "MF Taufiq, A Doucet, R Cornish, JF Ton",
+      "tags": [
+        "Bandits",
+        "Reinforcement Learning"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:qxL8FJ1GzNcC"
+      }
+    },
+    {
+      "id": "fair-classifiers-that-abstain-without-harm",
+      "title": "Fair Classifiers that Abstain without Harm",
+      "date": "2023-01-01",
+      "display_date": "2023",
       "venue": "ICLR 2024",
-      "authors": "Jean-François Ton, Hao Peng, Soravit Changpinyo, Kate Saenko",
-      "summary": "Proposes a sketch-based annotation interface that halves preference collection time for RLHF datasets while keeping reward model calibration within 2% of expert-curated baselines.",
-      "tags": ["LLMs", "Post-training", "Reward modelling"],
-      "thumbnail": "Images/papers/reward-sketching-llms.svg",
+      "authors": "T Yin, JF Ton, R Guo, Y Yao, M Liu, Y Liu",
+      "tags": [
+        "Responsible AI"
+      ],
       "links": {
-        "code": "https://github.com/sAviOr287/reward-sketching"
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:YOwf2qJgpHMC"
       }
     },
     {
-      "id": "preference-graphs-tool-use",
-      "title": "Preference Graphs Unlock Safe Tool Use for Language Agents",
-      "date": "2023-07-08",
-      "display_date": "Jul 2023",
-      "venue": "NeurIPS 2023",
-      "authors": "Jean-François Ton, Tzu-Wei Sung, Jovana Mitrovic",
-      "summary": "Extends reward modelling to structured tool-selection graphs, aligning LLM tool use with domain-specific constraints and improving factual grounding in evaluation suites like TruthfulQA and Spider.",
-      "tags": ["LLMs", "Safety", "Tool use"],
-      "thumbnail": "Images/papers/preference-graphs-tool-use.svg",
-      "links": {}
-    },
-    {
-      "id": "self-distilled-preference-models",
-      "title": "Self-Distilled Preference Models for Long-Horizon Dialogue",
-      "date": "2023-03-20",
-      "display_date": "Mar 2023",
-      "venue": "ACL 2023",
-      "authors": "Jean-François Ton, Ruiqi Zhong, Esin Durmus, Tatsunori Hashimoto",
-      "summary": "Demonstrates how self-distillation stabilises reward models beyond 20-turn conversations, enabling safer assistant behaviour without prohibitive human labelling budgets.",
-      "tags": ["LLMs", "Post-training", "Dialogue"],
-      "thumbnail": "Images/papers/self-distilled-preference-models.svg",
+      "id": "invariant-learning-via-probability-of-sufficient-and-necessary-causes",
+      "title": "Invariant Learning via Probability of Sufficient and Necessary Causes",
+      "date": "2023-01-01",
+      "display_date": "2023",
+      "venue": "Neurips 2023 (Conference on Neural Information Processing Systems)",
+      "authors": "M Yang, Z Fang, Y Zhang, Y Du, F Liu, JF Ton, J Wang",
+      "tags": [
+        "Causality"
+      ],
       "links": {
-        "code": "https://github.com/sAviOr287/self-distilled-preferences"
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:Zph67rFs4hoC"
       }
     },
     {
-      "id": "conformal-off-policy-bandits",
+      "id": "trustworthy-llms-a-survey-and-guideline-for-evaluating-large-language-models-alignment",
+      "title": "Trustworthy LLMs: a Survey and Guideline for Evaluating Large Language Models' Alignment",
+      "date": "2023-01-01",
+      "display_date": "2023",
+      "venue": "arXiv preprint arXiv:2308.05374",
+      "authors": "Y Liu, Y Yao, JF Ton, X Zhang, H Cheng, R Guo, Y Klochkov, MF Taufiq, ...",
+      "tags": [
+        "LLM Alignment",
+        "Responsible AI"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:KlAtU1dfN6UC"
+      }
+    },
+    {
+      "id": "rectifying-unfairness-in-recommendation-feedback-loop",
+      "title": "Rectifying unfairness in recommendation feedback loop",
+      "date": "2023-01-01",
+      "display_date": "2023",
+      "venue": "Proceedings of the 46th international ACM SIGIR Conference on Research and …",
+      "authors": "M Yang, J Wang, JF Ton",
+      "tags": [
+        "Recommender Systems",
+        "Responsible AI"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:kNdYIx-mwKoC"
+      }
+    },
+    {
+      "id": "fair-learning-to-rank-with-distribution-free-risk-control",
+      "title": "Fair learning to rank with distribution-free risk control",
+      "date": "2023-01-01",
+      "display_date": "2023",
+      "venue": "arXiv preprint arXiv:2306.07188",
+      "authors": "R Guo, JF Ton, Y Liu",
+      "tags": [
+        "Responsible AI"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:IWHjjKOFINEC"
+      }
+    },
+    {
+      "id": "conformal-off-policy-prediction-in-contextual-bandits",
       "title": "Conformal Off-Policy Prediction in Contextual Bandits",
-      "date": "2022-09-14",
-      "display_date": "Sep 2022",
-      "venue": "NeurIPS 2022",
-      "authors": "Jean-François Ton*, Muhammad Faaiz Taufiq*, Rob Cornish, Yee Whye Teh, Arnaud Doucet",
-      "summary": "Introduces conformal risk control for off-policy evaluation, providing finite-sample coverage guarantees in contextual bandits.",
-      "tags": ["Conformal prediction", "Causality"],
-      "thumbnail": "Images/bandits.png",
+      "date": "2022-01-01",
+      "display_date": "2022",
+      "venue": "Neurips 2022 (Conference on Neural Information Processing Systems)",
+      "authors": "MF Taufiq*, JF Ton*, R Cornish, YW Teh, A Doucet",
+      "tags": [
+        "Bandits",
+        "Reinforcement Learning",
+        "Uncertainty"
+      ],
       "links": {
-        "arxiv": "https://arxiv.org/abs/2206.04405"
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&cstart=20&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:0EnyYjriUFMC"
       }
     },
     {
-      "id": "grassmann-stein-vgd",
+      "id": "grassmann-stein-variational-gradient-descent",
       "title": "Grassmann Stein Variational Gradient Descent",
-      "date": "2022-01-19",
-      "display_date": "Jan 2022",
-      "venue": "AISTATS 2022",
-      "authors": "Xing Liu, Harrison Zhu, Jean-François Ton, George Wynne, Andrew Duncan",
-      "summary": "Extends SVGD to Grassmann manifolds, improving posterior inference for matrix factorisation models.",
-      "tags": ["Kernels"],
-      "thumbnail": "Images/steinsgate.png",
+      "date": "2022-01-01",
+      "display_date": "2022",
+      "venue": "AISTATS 2022 (International Conference on Artificial Intelligence and …",
+      "authors": "X Liu, H Zhu, JF Ton, G Wynne, A Duncan",
+      "tags": [
+        "Bayesian Inference",
+        "Kernel Methods"
+      ],
       "links": {
-        "arxiv": "https://arxiv.org/abs/2202.03297"
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&cstart=20&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:UebtZRa9Y70C"
       }
     },
     {
-      "id": "bayesimp",
-      "title": "BayesIMP: Uncertainty Quantification for Causal Data Fusion",
-      "date": "2021-10-03",
-      "display_date": "Oct 2021",
-      "venue": "NeurIPS 2021",
-      "authors": "Jean-François Ton*, Siu Lun Chau*, Javier Gonzalez, Yee Whye Teh, Dino Sejdinovic",
-      "summary": "Provides principled uncertainty calibration for causal data fusion using Bayesian importance weighting.",
-      "tags": ["Causality", "Kernel methods"],
-      "thumbnail": "Images/bayesimp.png",
+      "id": "causal-reasoning-and-meta-learning-using-kernel-mean-embeddings",
+      "title": "Causal reasoning and meta learning using kernel mean embeddings",
+      "date": "2022-01-01",
+      "display_date": "2022",
+      "venue": "University of Oxford",
+      "authors": "JF Ton",
+      "tags": [
+        "Causality",
+        "Kernel Methods",
+        "Meta Learning"
+      ],
       "links": {
-        "arxiv": "https://arxiv.org/abs/2106.03477"
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&cstart=20&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:8k81kl-MbHgC"
+      }
+    },
+    {
+      "id": "regularized-training-of-nearest-neighbor-language-models",
+      "title": "Regularized Training of Nearest Neighbor Language Models",
+      "date": "2021-01-01",
+      "display_date": "2021",
+      "venue": "NAACL SRW 2022",
+      "authors": "JF Ton, W Talbott, S Zhai, J Susskind",
+      "tags": [
+        "LLM Alignment"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&cstart=20&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:roLk4NBRz8UC"
+      }
+    },
+    {
+      "id": "bayesimp-uncertainty-quantification-in-causal-data-fusion",
+      "title": "BayesIMP: Uncertainty Quantification in Causal Data Fusion",
+      "date": "2021-01-01",
+      "display_date": "2021",
+      "venue": "Neurips 2021 (Conference on Neural Information Processing Systems)",
+      "authors": "SL Chau*, JF Ton*, J Gonzalez, YW Teh, D Sejdinovic, ...",
+      "tags": [
+        "Causality",
+        "Uncertainty"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&cstart=20&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:ufrVoPGSRksC"
+      }
+    },
+    {
+      "id": "noise-contrastive-meta-learning-for-conditional-density-estimation-using-kernel-mean-embeddings",
+      "title": "Noise Contrastive Meta-Learning for Conditional Density Estimation using Kernel Mean Embeddings",
+      "date": "2021-01-01",
+      "display_date": "2021",
+      "venue": "AISTATS 2021 (International Conference on Artificial Intelligence and …",
+      "authors": "JF Ton, L Chan, YW Teh, D Sejdinovic",
+      "tags": [
+        "Kernel Methods",
+        "Meta Learning"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&cstart=20&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:IjCSPb-OGe4C"
+      }
+    },
+    {
+      "id": "towards-a-unified-analysis-of-random-fourier-features",
+      "title": "Towards a unified analysis of random fourier features",
+      "date": "2021-01-01",
+      "display_date": "2021",
+      "venue": "Journal of Machine Learning Research 22 (108), 1-51",
+      "authors": "Z Li, JF Ton, D Oglic, D Sejdinovic",
+      "tags": [
+        "Kernel Methods"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&cstart=20&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:hC7cP41nSMkC"
+      }
+    },
+    {
+      "id": "robust-pruning-at-initialization",
+      "title": "Robust pruning at initialization",
+      "date": "2021-01-01",
+      "display_date": "2021",
+      "venue": "ICLR 2021 (International Conference on Learning Representations)",
+      "authors": "S Hayou, JF Ton, A Doucet, YW Teh",
+      "tags": [
+        "Efficient Methods"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&cstart=20&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:eQOLeE2rZwMC"
+      }
+    },
+    {
+      "id": "metafun-meta-learning-with-iterative-functional-updates",
+      "title": "Metafun: Meta-learning with iterative functional updates",
+      "date": "2020-01-01",
+      "display_date": "2020",
+      "venue": "ICML 2020 (International Conference on Machine Learning), 10617-10627",
+      "authors": "J Xu, JF Ton, H Kim, A Kosiorek, YW Teh",
+      "tags": [
+        "Meta Learning"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&cstart=20&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:zYLM7Y9cAGgC"
+      }
+    },
+    {
+      "id": "meta-learning-for-causal-direction",
+      "title": "Meta Learning for Causal Direction",
+      "date": "2020-01-01",
+      "display_date": "2020",
+      "venue": "AAAI 2021 (Conference on Artificial Intelligence) 35 (11), 9897-9905",
+      "authors": "JF Ton, D Sejdinovic, K Fukumizu",
+      "tags": [
+        "Causality",
+        "Meta Learning"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&cstart=20&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:Y0pCki6q_DkC"
+      }
+    },
+    {
+      "id": "towards-a-unified-analysis-of-random-fourier-features-2",
+      "title": "Towards a unified analysis of random Fourier features",
+      "date": "2019-01-01",
+      "display_date": "2019",
+      "venue": "International conference on machine learning, 3905-3914",
+      "authors": "Z Li, JF Ton, D Oglic, D Sejdinovic",
+      "tags": [
+        "Kernel Methods"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&cstart=20&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:qUcmZB5y_30C"
+      }
+    },
+    {
+      "id": "automated-model-selection-with-bayesian-quadrature",
+      "title": "Automated Model Selection with Bayesian Quadrature",
+      "date": "2019-01-01",
+      "display_date": "2019",
+      "venue": "ICML 2019 (International Conference on Machine Learning) 36 (PMLR 97), 931-940",
+      "authors": "H Chai, JF Ton, R Garnett, MA Osborne",
+      "tags": [
+        "Bayesian Inference"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&cstart=20&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:qjMakFHDy7sC"
+      }
+    },
+    {
+      "id": "spatial-mapping-with-gaussian-processes-and-nonstationary-fourier-features",
+      "title": "Spatial mapping with Gaussian processes and nonstationary Fourier features",
+      "date": "2018-01-01",
+      "display_date": "2018",
+      "venue": "Journal of Spatial Statistics 28, 59-78",
+      "authors": "JF Ton, S Flaxman, D Sejdinovic, S Bhatt",
+      "tags": [
+        "Kernel Methods"
+      ],
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=WWVOu4kAAAAJ&cstart=20&sortby=pubdate&citation_for_view=WWVOu4kAAAAJ:9yKSN-GCB0IC"
       }
     }
   ]

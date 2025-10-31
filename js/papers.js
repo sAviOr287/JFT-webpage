@@ -164,9 +164,7 @@ function createFilterButton(label, isActive) {
   button.className = 'filter-button' + (isActive ? ' is-active' : '');
   button.textContent = label;
   button.setAttribute('data-filter-tag', label);
-  if (isActive) {
-    button.setAttribute('aria-pressed', 'true');
-  }
+  button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
   return button;
 }
 
