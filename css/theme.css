@@ -1,0 +1,62 @@
+:root {
+  --surface: #ffffff;
+  --surface-tinted: rgba(16, 20, 24, 0.04);
+  --text-primary: #101418;
+  --text-secondary: rgba(16, 20, 24, 0.72);
+  --accent: #0052cc;
+  --accent-soft: rgba(0, 82, 204, 0.12);
+  --success: #22a07b;
+}
+
+body {
+  color: var(--text-primary);
+  background: linear-gradient(180deg, #f7f9fc 0%, #f2f6ff 32%, #f7f9fc 100%);
+}
+
+.hero {
+  background: radial-gradient(circle at top left, rgba(0, 82, 204, 0.16), transparent 55%);
+}
+
+.hero__headline span {
+  color: var(--accent);
+}
+
+.badge {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.focus-card:nth-of-type(1) {
+  background: linear-gradient(160deg, rgba(0, 82, 204, 0.12), rgba(255, 255, 255, 0.9));
+}
+
+.focus-card:nth-of-type(2) {
+  background: linear-gradient(160deg, rgba(34, 160, 123, 0.14), rgba(255, 255, 255, 0.9));
+}
+
+.focus-card:nth-of-type(3) {
+  background: linear-gradient(160deg, rgba(148, 92, 255, 0.14), rgba(255, 255, 255, 0.9));
+}
+
+.paper-card {
+  background: var(--surface);
+}
+
+.filter-button.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.filter-button:hover,
+.filter-button:focus-visible {
+  border-color: var(--accent);
+}
+
+.contact-card strong {
+  color: var(--accent);
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  color: #ffffff;
+}

@@ -1,360 +1,124 @@
- <!DOCTYPE HTML>
-<!--
-	Spatial by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
-<html>
-	<head>
-		<title>Jean-Francois Ton - Home Page</title>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="Home page" />
-		<meta name="keywords" content="Home page,Jean-Francois Ton,jean-francois Ton,jeanfrancoiston" />
-		<link rel="shortcut icon" href="Images/favicon.ico" type="image/vnd.microsoft.icon" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jean-François Ton — Research Scientist</title>
+  <meta name="description" content="Jean-François Ton is a research scientist focused on large language model post-training, reward modelling, and multi-agent alignment." />
+  <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <script defer src="js/reveal.js"></script>
+  <script defer src="js/papers.js"></script>
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="site-header__inner">
+      <a class="logo" href="index.html" aria-label="Jean-François Ton home">JF TON</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="works.html">Research</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
-		<script src="js/jquery.min.js"></script>
-		<!-- <script src="js/skel.min.js"></script> -->
-		<!-- <script src="js/skel-layers.min.js"></script> -->
-		<!-- <script src="js/init.js"></script> -->
+  <main>
+    <section class="hero" id="intro">
+      <div class="grid" style="gap: clamp(1.75rem, 3.5vw, 2.5rem);">
+        <div class="hero__meta">
+          <span class="badge">Senior Research Scientist · TikTok</span>
+          <span class="pill">Large language models</span>
+          <span class="pill">Post-training &amp; alignment</span>
+          <span class="pill">Multi-agent systems</span>
+        </div>
+        <h1 class="hero__headline">Designing trustworthy <span>post-trained LLMs</span> that collaborate safely with people and other agents.</h1>
+        <p class="hero__description">I build and study reinforcement learning from human feedback, reward modelling, and multi-agent evaluation frameworks that close the gap between raw language models and responsible deployed AI systems. Previously, I worked on kernel methods, causal inference, and conformal prediction—techniques that still inform how I evaluate uncertainty today.</p>
+        <div class="hero__meta" style="gap: 1rem;">
+          <a class="button" href="#latest">Explore recent work</a>
+          <a class="button button--ghost" href="PDFs/jf_CV_new.pdf" target="_blank" rel="noopener">Download CV</a>
+        </div>
+      </div>
+    </section>
 
-		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/skel/2.2.1/skel.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/skel-layers/2.0.2/skel-layers.min.js"></script>
-		<script src="js/init.js"></script>
-		<!-- <script src="js/client.js"></script> -->
-		<noscript>
-			<!-- <link rel="stylesheet" href="css/skel.css" /> -->
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skel/2.2.1/skel.css" />
-			<link rel="stylesheet" href="css/style.css" />
-			<link rel="stylesheet" href="css/style-xlarge.css" />
-		</noscript>
+    <section class="section section--narrow" id="focus">
+      <h2 class="section-title">Current research focus</h2>
+      <div class="focus-grid">
+        <article class="focus-card reveal-on-scroll">
+          <h3>Instruction-tuned LLMs</h3>
+          <p>I develop post-training pipelines that combine reinforcement learning, direct preference optimisation, and scalable human feedback to align foundation models with nuanced policies.</p>
+        </article>
+        <article class="focus-card reveal-on-scroll">
+          <h3>Reward modelling &amp; safety evaluation</h3>
+          <p>From synthetic preference datasets to real-time feedback loops, my work builds robust reward models that respect safety constraints and uncover failure modes before launch.</p>
+        </article>
+        <article class="focus-card reveal-on-scroll">
+          <h3>Multi-agent systems</h3>
+          <p>I prototype collaborative agent swarms that coordinate reasoning, tool use, and exploration—while leveraging my earlier research on kernels and conformal risk bounds to quantify uncertainty.</p>
+        </article>
+      </div>
+    </section>
 
-		<script>
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    <section class="section" id="latest">
+      <div class="section--narrow">
+        <div class="grid" style="gap: 1rem; margin-bottom: clamp(1.5rem, 3vw, 2.5rem);">
+          <h2 class="section-title" style="margin-bottom: 0;">Most recent papers</h2>
+          <p class="text-muted">A living stream of my latest publications and preprints across LLM post-training, reward modelling, and collaborative agents. Scroll to reveal the highlights, or head to the research library for filters and archives.</p>
+        </div>
+        <div class="timeline" data-papers-target="featured"></div>
+        <div class="grid" style="margin-top: clamp(2rem, 4vw, 3rem);">
+          <a class="button button--ghost" href="works.html">Browse the full research library →</a>
+        </div>
+      </div>
+    </section>
 
-		  ga('create', 'UA-90612705-1', 'auto');
-		  ga('send', 'pageview');
+    <section class="section section--narrow" id="experience">
+      <h2 class="section-title">Selected collaborations</h2>
+      <div class="split">
+        <div class="contact-card reveal-on-scroll">
+          <strong>Industry</strong>
+          <p>TikTok (ByteDance AI Lab), Apple ML Research, Amazon Tübingen, Bloomberg AI.</p>
+        </div>
+        <div class="contact-card reveal-on-scroll">
+          <strong>Academic</strong>
+          <p>University of Oxford (OATML), University of Cambridge, Alan Turing Institute, Imperial College London.</p>
+        </div>
+      </div>
+    </section>
 
-		</script>
+    <section class="section section--narrow" id="contact-preview">
+      <div class="split">
+        <div class="contact-card reveal-on-scroll">
+          <strong>Let’s build aligned agents together</strong>
+          <p>I’m always up for technical discussions around reinforcement learning from human feedback, scalable evaluation, and multi-agent orchestration.</p>
+        </div>
+        <div class="contact-card reveal-on-scroll">
+          <p>Email</p>
+          <h3><a href="mailto:hello@jeanfrancoiston.com">hello@jeanfrancoiston.com</a></h3>
+          <p class="text-muted">I am not hiring interns at the moment, but I welcome collaborations and speaking invitations.</p>
+          <div class="hero__meta">
+            <a href="https://scholar.google.com/citations?user=WWVOu4kAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+            <a href="https://github.com/sAviOr287" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com/in/jean-fran%C3%A7ois-ton-b172a5102/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-		<meta property="og:title" content="Jean-Francois Ton - Home Page" />
-		<meta property="og:type" content="website" />
-		<meta property="og:image" content="Images/me_photo2.jpg" />
-		<meta property="og:description" content="" />
-	</head>
-	<body class="landing">
-
-		<!-- Header -->
-			<header id="header" class="alt">
-				<nav id="share" style="left: 1.25em;">
-					<ul class="icons">
-						<li style="margin-left:1em"><a href="https://github.com/sAviOr287" target="_blank" class="icon fa-github"><span class="label">Github</span></a></li>
-						<li style="margin-left:1em"><a href="https://www.linkedin.com/in/jean-fran%C3%A7ois-ton-b172a5102/" target="_blank" class="icon  fa-linkedin-square"><span class="label">Linkedin</span></a></li>
-            <li style="margin-left:1em"><a href="https://scholar.google.com/citations?user=WWVOu4kAAAAJ&hl=en" target="_blank" class="icon  fa-google"><span class="label">GoogleScholar</span></a></li>
-					</ul>
-				</nav>
-				<nav id="nav">
-					<ul>
-						<li><strong><a href="index.html">Home</a></strong></li>
-						<!-- <li><a href="software.html">Software</a></li> -->
-						<li><a id="target" href="works.html" >Works</a></li>
-						<!-- <li><a href="misc.html">Misc</a></li>
-						<li><a href="blog.html">Blog</a><li> -->
-						<li><a href="contact.html">Contact</a></li>
-					</ul>
-				</nav>
-			</header>
-
-		<!-- Banner -->
-			<section id="banner">
-				<h2>Jean-Francois Ton</h2>
-			</section>
-
-			<!-- about -->
-				<section id="about" class="wrapper style1">
-					<div class="container 75%">
-						<div class="row 200%">
-							<div class="6u 12u$(medium)">
-								<header class="major" style="margin-bottom:2em">
-									<!-- <div class="image captioned row 100% uniform special"> -->
-										<div class="0u 6u$(medium)">
-											<h2>About Me</h2>
-										</div>
-										<div class="12u 6u$(medium)" style="margin: auto"><span class="image captioned fit"><img src="Images/me_photo.jpg" alt=""></span></div>
-									<!-- </div> -->
-								</header>
-							</div>
-							<div style="margin-top: 5em" class="6u$ 12u$(medium)">
-								<p>
-									Currently working as senior research scientist at Tiktok, focusing on explainable ML and causal inference.
-									<br>
-									<br>
-									We are hiring PhD interns !!! <a href="https://careers.tiktok.com/position/7138419538228873485/detail?spread=5MWH5CQ" target="_blank"> Link</a>. Feel free to contact me for more information.
-									<br>
-									<br>
-									I recently defended my DPhil at the University of Oxford in Machine Learning supervised by <a href="https://www.stats.ox.ac.uk/~teh/index.html" target="_blank"> Prof. Yee Whye Teh</a> and <a href="http://www.stats.ox.ac.uk/~sejdinov/" target="_blank"> Prof. Dino Sejdinovic</a>.
-									Before joining the <a href="http://csml.stats.ox.ac.uk/learning/" target="_blank"> Oxford Statistical Machine Learning Group</a>, I did my MSc in <a href="https://www.ox.ac.uk/admissions/graduate/courses/msc-statistical-science?wssl=1" target="_blank"> Applied Statistics</a> at the University of Oxford.
-									 Prior to that, I graduated with BSc in Mathematics from <a href="https://www.imperial.ac.uk/mathematics/" target="_blank"> Imperial College London</a>.<br>
-									<br>
-									<br>
-									I have previously interned at <a href="https://aws.amazon.com/free/?trk=ps_a134p000003yhYiAAI&trkCampaign=acq_paid_search_brand&sc_channel=ps&sc_campaign=acquisition_DACH&sc_publisher=google&sc_category=core-main&sc_country=DACH&sc_geo=EMEA&sc_outcome=Acquisition&sc_detail=aws&sc_content=Brand_Core_aws_e&sc_matchtype=e&sc_segment=456911458944&sc_medium=ACQ-P|PS-GO|Brand|Desktop|SU|Core-Main|Core|DACH|EN|Text&s_kwcid=AL!4422!3!456911458944!e!!g!!aws&ef_id=CjwKCAiA55mPBhBOEiwANmzoQl0etTI-URJj-yWMdSF6xq0yQ2RDSj4lQrT0WcdOudWYYUbbnlHmNBoCSjwQAvD_BwE:G:s&s_kwcid=AL!4422!3!456911458944!e!!g!!aws" target="_blank"> Amazon</a> Tubingen Germany, <a href="https://www.apple.com/" target="_blank"> Apple Inc.</a> Cupertino CA. and <a href="https://www.bloomberg.com/europe" target="_blank"> Bloomberg L.P.</a> London.
-  								My research interest lies in Causal Inference, XAI and Kernel Methods. Specifically, understanding uncertainty in Deep/Causal Models.
-								
-							</div>
-						</div>
-					</div>
-				</section>
-
-		<!-- news -->
-				<section id="news_header" class="wrapper style3 special" style="padding: 2em 0 2em 0">
-					<div class="container">
-						<header class="major" style="margin-bottom: 0em">
-							<h2 style="margin-bottom: 0em">Most Recent Work</h2>
-						</header>
-					</div>
-				</section>
-				<section id="news" class="wrapper style2">
-					<div class="container">
-
-
-			<div class="feature">
-				<div class="image rounded"><img src="Images/bandits.png" title="meta"  alt="meta" style="max-width: 160px"/></div>
-				<div class="content">
-					<header>
-					<h4>Conformal Off-Policy Prediction in Contextual Bandits</h4>
-					<h5><u>Jean-Francois Ton*</u>, Muhammad Faaiz Taufiq*, Rob Cornish, Yee Whye Teh, Arnaud Doucet</h5>
-					<p>14/9/2022</p>
-					</header>
-					<p>Our paper has been accepted at <b>Neurips 2022</b> <a href="https://arxiv.org/abs/2206.04405" target="_blank"> Link</a>.</p>
-				</div>
-				</div>
-
-
-            <div class="feature">
-              <div class="image rounded"><img src="Images/steinsgate.png" title="meta"  alt="meta" style="max-width: 160px"/></div>
-              <div class="content">
-                <header>
-                  <h4>Grassmann Stein Variational Gradient Descent</h4>
-                  <h5>Xing Liu, Harrison Zhu, <u>Jean-Francois Ton</u>, George Wynne, Andrew Duncan</h5>
-                  <p>19/1/2022</p>
-                </header>
-                <p>Our paper has been accepted at <b>AISTATS 2022 </b> <a href="https://arxiv.org/abs/2202.03297" target="_blank"> Link</a> .</p>
-              </div>
-            </div>
-			
-
-
-            <div class="feature">
-              <div class="image rounded"><img src="Images/bayesimp.png" title="meta"  alt="meta" style="max-width: 160px"/></div>
-              <div class="content">
-                <header>
-                  <h4>BayesIMP: Uncertainty Quantification for Causal Data Fusion</h4>
-                  <h5><u>Jean-Francois Ton*</u>, Siu Lun Chau*, Javier Gonzalez, Yee Whye Teh, Dino Sejdinovic</h5>
-                  <p>03/10/2021</p>
-                </header>
-                <p>Our paper has been accepted at <b>Neurips 2021</b> <a href="https://arxiv.org/abs/2106.03477" target="_blank"> Link</a>.</p>
-              </div>
-            </div>
-
-            <div class="feature">
-              <div class="image rounded"><img src="Images/knn.gif" title="meta"  alt="meta" style="max-width: 160px"/></div>
-              <div class="content">
-                <header>
-                  <h4>Regularized Training of Nearest Neighbor Language Models</h4>
-                  <h5><u>Jean-Francois Ton</u>, Walter Talbott, Shuangfei Zhai, Josh Susskind</h5>
-                  <p>03/10/2021</p>
-                </header>
-                <p>Our paper has been accepted at <b>NAACL 2022 SRW</b><a href="https://arxiv.org/abs/2109.08249" target="_blank"> Link</a>.</p>
-              </div>
-            </div>
-
-            <div class="feature">
-              <div class="image rounded"><img src="Images/CME.png" title="meta"  alt="meta" style="max-width: 160px"/></div>
-              <div class="content">
-                <header>
-                  <h4>Noise Contrastive Meta Learning for Conditional Density Estimation using Kernel Mean Embeddings</h4>
-                  <h5><u>Jean-Francois Ton</u>, Lucian Chan, Yee Whye Teh, Dino Sejdinovic</h5>
-                  <p>05/06/2019</p>
-                </header>
-                <p>Our paper has been accepted at <b>AISTATS 2021</b> <a href="https://arxiv.org/pdf/1906.02236.pdf" target="_blank"> Link</a>.</p>
-              </div>
-            </div>
-
-            <div class="feature">
-              <div class="image rounded"><img src="Images/pruning.png" title="meta"  alt="meta" style="max-width: 160px"/></div>
-              <div class="content">
-                <header>
-                  <h4>Pruning untrained neural networks : Principles and Analysis</h4>
-                  <h5>Soufiane Hayou, <u>Jean-Francois Ton</u>, Arnaud Doucet, Yee Whye Teh</h5>
-                  <p>21/02/2020</p>
-                </header>
-                <p>Our paper has been accepted at <b>ICLR 2021</b> <a href="https://arxiv.org/pdf/2002.08797.pdf" target="_blank"> Link</a>.</p>
-              </div>
-            </div>
-
-
-            <div class="feature">
-              <div class="image rounded"><img src="Images/causal.jpg" title="meta"  alt="meta" style="max-width: 160px"/></div>
-              <div class="content">
-                <header>
-                  <h4>Meta Learning for Causal Direction </h4>
-                  <h5><u>Jean-Francois Ton</u>, Dino Sejdinovic, Kenji Fukumizu</h5>
-                  <p>14/12/2020</p>
-                </header>
-                <p>Our paper has been accepted at <b>AAAI 2021</b> <a href="https://arxiv.org/pdf/2007.02809.pdf" target="_blank"> Link</a>.</p>
-              </div>
-            </div>
-
-            <div class="feature">
-              <div class="image rounded"><img src="Images/fun.png" title="meta"  alt="meta" style="max-width: 160px"/></div>
-              <div class="content">
-                <header>
-                  <h4>MetaFun: Meta-Learning with Iterative Functional Updates</h4>
-                  <h5>Jin Xu, <u>Jean-Francois Ton</u>, Hyunjik Kim, Adam R. Kosiorek, Yee Whye Teh</h5>
-                  <p>05/12/2019</p>
-                </header>
-                <p>Our paper has been accepted at <b>ICML 2020</b> <a href="https://arxiv.org/abs/1912.02738" target="_blank"> Link</a>.</p>
-              </div>
-            </div>
-
-
-							<div class="feature">
-								<div class="image rounded"><img src="Images/bq.png" title="BQ"  alt="BQ" style="max-width: 160px"/></div>
-								<div class="content">
-									<header>
-										<h4>Automated Model Selection Using Bayesian Quadrature</h4>
-                    <h5>Henry Chai, <u>Jean-Francois Ton</u>, Roman Garnett, Michael A. Osborne</h5>
-										<p>26/02/2019</p>
-									</header>
-									<p>Our paper has been accepted at <b>ICML 2019</b> <a href="https://arxiv.org/pdf/1902.09724.pdf" target="_blank"> Link </a></p>
-								</div>
-							</div>
-
-
-							<div class="feature">
-								<div class="image rounded"><img src="Images/NSGP.jpg" title="Non-stationary GP" alt="Non-stationary GP" style="max-width: 160px"/></div>
-								<div class="content">
-									<header>
-										<h4>Spatial Mapping with Gaussian Processes and Nonstationary Fourier Features</h4>
-                    <h5><u>Jean-Francois Ton</u>, Seth Flaxman, Dino Sejdinovic, Samir Bhatt</h5>
-										<p>09/07/2018</p>
-									</header>
-									<p>Our paper has been accepted at <b>Spatatial Statisics Journal 2018</b> <a href="https://www.sciencedirect.com/science/article/pii/S2211675317302890?via%3Dihub" target="_blank"> Journal of Spatial Statistics 2018</a>
-								</div>
-							</div>
-
-							<div class="feature">
-								<div class="image rounded"><img src="Images/kernel.jpg" title="kernel"  alt="kernel" style="max-width: 160px"/></div>
-								<div class="content">
-									<header>
-										<h4>A Unified Analysis of Random Fourier Features</h4>
-                    <h5>Zhu Li,<u>Jean-Francois Ton</u>, Dino Oglic, Dino Sejdinovic</h5>
-										<p>09/12/2017</p>
-									</header>
-									<p>Our paper has been accepted at <b>ICML 2019 (Honorable Mention for Best Paper Award)<b> <a href="https://arxiv.org/pdf/1806.09178v1.pdf" target="_blank"> Link </a></p>
-								</div>
-							</div>
-						</div>
-
-						<!-- <div class="feature-grid">
-							<div class="feature">
-								<div class="image rounded"><a href="works.html#Turing"><img src="Images/turing.jpg" title="Alan Turing" alt="Alan Turing" style="max-width: 160px"/></a></div>
-								<div class="content">
-									<header>
-										<h4><a href="works.html#Turing">Turing.jl: A probabilistic programming language in Julia</a></h4>
-									</header>
-									<p>
-										I contributed to <a href="https://github.com/yebai/Turing.jl">Turing</a>, by allowing to handle certain class of Bayesian Nonparamtric models, along with various generic inference algorithms.
-									</p>
-								</div>
-							</div> -->
-							<!-- <div class="feature">
-								<div class="image rounded"><img src="Images/gp.png" title="Gaussian process bandits" alt="Gaussian process bandits" style="max-width: 160px"/></div>
-								<div class="content">
-									<header>
-										<h4>Thompson Sampling for GP-Bandits</h4>
-										<p>08/01/2017</p>
-									</header>
-									<p> I updated the <a href="works.html">works page</a> to add the <a href="works.html#gpbandits">report, presentation and source code</a> of my adaptation of Thompson Sampling for the Gaussian process bandit setting.</p>
-
-								</div>
-							</div> -->
-					</div>
-				</section>
-
-			<!-- interests -->
-				<section id="interests" class="wrapper style1">
-					<div class="container 75%">
-						<div class="row 200%">
-							<div class="6u 12u$(medium)">
-								<header class="major">
-									<h2>Research interests</h2>
-								</header>
-							</div>
-							<div class="6u$ 12u$(medium)">
-								<p>My main interests lie in Computational Statistics and Machine Learning. I have done projects on MCMC Methods, Gaussian Processes, Bayesian Quadrature and Bayesian Deep Learning. I am currently working on Meta-Learning and in understanding uncertainty in Deep Learning Models.
-									In my free time I like to do photography and play table tennis.
-							</div>
-						</div>
-					</div>
-				</section>
-
-			<!-- CV -->
-				<section id="CV" class="wrapper style3 special">
-					<div class="container">
-						<header class="major">
-							<h2>Curriculum vitae</h2>
-							<p>My Résumé is available <a href="PDFs/jf_CV_new.pdf" target="_blank">here</a>.
-						</header>
-					</div>
-				</section>
-
-			<!-- contact -->
-				<section id="contact" class="wrapper style1 special">
-					<div class="container">
-						<header class="special">
-							<h2>Contact me</h2>
-						</header>
-						<div class="feature-grid">
-							<div class="feature">
-								<div class="image small rounded" ><img src="Images/email2.png" alt=""/></div>
-								<div class="content small">
-									<header>
-										<h4>Email</h4>
-									</header>
-							        jeanfrancois-at-bytedance.com
-								</div>
-							</div>
-							<div class="feature">
-								<div class="image rounded small"><img src="Images/post2.png" alt="" /></div>
-								<div class="content small">
-									<header>
-										<h4>Post</h4>
-									</header>
-									Department of Statistics<br>
-									University of Oxford<br>
-							        24-29 St Giles<br>
-							        Oxford OX1 3LB, UK
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="container">
-					<ul class="copyright">
-						<li>Copyright &copy; Jean-Francois Ton</li>
-						<li>Adapted Design: Copyright &copy; <a href="http://emilemathieu.fr/" target="_blank">Emile Mathieu</a></li>
-						<li>Original Template Design: <a href="http://templated.co" target="_blank">TEMPLATED</a></li>
-					</ul>
-				</div>
-			</footer>
-
-	</body>
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p>© <span id="year"></span> Jean-François Ton. Crafted for GitHub Pages.</p>
+      <div class="social-links" aria-label="Social links">
+        <a href="https://scholar.google.com/citations?user=WWVOu4kAAAAJ" target="_blank" rel="noopener">Scholar</a>
+        <a href="https://github.com/sAviOr287" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/jean-fran%C3%A7ois-ton-b172a5102/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
