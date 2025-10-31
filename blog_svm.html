@@ -1,439 +1,182 @@
-<!DOCTYPE HTML>
-<!--
-    Spatial by TEMPLATED
-    templated.co @templatedco
-    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
-<html>
-        <head>
-        <title>An efficient soft-margin kernel SVM implementation in Python | Emile Mathieu - Blog</title>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <meta name="description" content="Works" />
-        <meta name="keywords" content="works,Emile Mathieu,Mathieu emile,emilemathieu" />
-        <link rel="shortcut icon" href="Images/favicon.ico" type="image/vnd.microsoft.icon" />
-        <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
-        <!--<script src="js/jquery.min.js"></script>
-        <script src="js/skel.min.js"></script>
-        <script src="js/skel-layers.min.js"></script>
-        <script src="js/init.js"></script>
-        -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/2.2.1/skel.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/skel-layers/2.0.2/skel-layers.min.js"></script>
-        <script src="js/init.js"></script>
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-          ga('create', 'UA-90612705-1', 'auto');
-          ga('send', 'pageview');
-        </script>
-        
-        <noscript>
-            <!-- <link rel="stylesheet" href="css/skel.css" /> -->
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skel/2.2.1/skel.css" />
-            <link rel="stylesheet" href="css/style.css" />
-            <link rel="stylesheet" href="css/style-xlarge.css" />
-            <link rel="stylesheet" href="https://assets-cdn.github.com/assets/gist-embed-9f0a4ad9c85ca776e669003688baa9d55f9db315562ce4d231d37dab2714c70a.css">
-        </noscript>
-        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <!-- For offline development: -->
-        <!--<script type="text/javascript" src="./MathJax-master/MathJax.js?config=TeX-AMS_HTML-full"></script>-->
-        <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
-          TeX: { equationNumbers: { autoNumber: "AMS" } }
-        });
-        </script>
-        <style type="text/css">
-            canvas { border: 1px solid white; }
-        </style>
-        <meta property="og:title" content="An efficient soft-margin kernel SVM implementation in Python | Emile Mathieu - Blog" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="http://emilemathieu.fr/Images/svm.png" />
-        <meta property="og:description" content="A simple tutorial to understand and build a soft-margin kernel SVM implementation in Python." />
-    </head>
-    <body class="landing">
-
-          <!-- Header -->
-            <header id="header" class="alt">
-                <nav id="share" style="left: 1.25em;">
-                    <ul class="icons">
-                        <li style="margin-left:1em"><a href="https://github.com/emilemathieu" target="_blank" class="icon fa-github"><span class="label">Github</span></a></li>
-                        <li style="margin-left:1em"><a href="https://fr.linkedin.com/in/emilemathieu" target="_blank" class="icon  fa-linkedin-square"><span class="label">Linkedin</span></a></li>
-                    </ul>
-                </nav>
-                <!--<h1><strong><a href="index.html">Emile Mathieu</a></strong></h1>-->
-                <nav id="nav">
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <!-- <li><a href="software.html">Software</a></li> -->
-                        <li><a href="works.html">Works</a></li>
-                        <li><a href="misc.html">Misc</a><li>
-                        <li><strong><a href="blog.html">Blog</a></strong><li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-            </header>
-
-        <!-- Banner -->
-            <section id="banner">
-                <h2>Emile Mathieu</h2>
-            </section>
-
-
-        <!-- uncertainty -->
-            <section id="uncertainty" class="wrapper">
-                <div class="container blog" style="max-width: 1000px;">
-
-                    <header class="major special">
-                        <h2>An efficient soft-margin kernel SVM implementation in Python</h2>
-                        <p>August 8th, 2018</p>
-                    </header>
-
-                    <p>
-                        <div class="social" style="text-align: center;">
-                            <span class="twitter">
-                                <a href="https://twitter.com/share" class="twitter-share-button"{count} data-url="http://emilemathieu.fr/blog_svm.html" data-size="default">Tweet</a>
-                            </span>
-                            <span class="google">
-                                <div class="g-plusone" data-href="http://emilemathieu.fr/blog_svm.html"></div>
-                            </span>
-                            <span class="Facebook">
-                                <div id="fb-root"></div>
-                                <div class="fb-share-button" data-href="http://emilemathieu.fr/blog_svm.html" data-layout="button_count" style="height: 21px; width: 85px" allowTransparency="true"></div>
-                            </span>
-                        </div>
-                    </p>
-
-                    
-                    <p style="display:none">
-                    $
-                    \newcommand{\R}{\mathbb{R}}
-                    \newcommand{\N}{\mathcal{N}}
-                    \newcommand{\svert}{~|~}
-                    \newcommand{\f}{\mathbf{f}}
-                    \newcommand{\x}{\mathbf{x}}
-                    \newcommand{\y}{\mathbf{y}}
-                    \newcommand{\z}{\mathbf{z}}
-                    \newcommand{\w}{\mathbf{w}}
-                    \newcommand{\W}{\mathbf{W}}
-                    \newcommand{\ba}{\mathbf{a}}
-                    \newcommand{\m}{\mathbf{m}}
-                    \newcommand{\ls}{\mathbf{l}}
-                    \newcommand{\bL}{\mathbf{L}}
-                    \newcommand{\X}{\mathbf{X}}
-                    \newcommand{\Y}{\mathbf{Y}}
-                    \newcommand{\p}{\mathbf{p}}
-                    \newcommand{\bepsilon}{\text{$\epsilon$}}
-                    \newcommand{\bgamma}{\text{$\gamma$}}
-                    \newcommand{\K}{\mathbf{K}}
-                    \newcommand{\diag}{\text{diag}}
-                    \newcommand{\argmin}{\text{argmin}}
-                    $
-                    </p>
-                    <p>This short tutorial aims at introducing support vector machine (SVM) methods from its mathematical formulation along with an efficient implementation in a few lines of Python! Do play with the full code hosted on <a href="https://github.com/emilemathieu/ImageClassificationChallenge/tree/master/code/mllib/svm" target="_blank" >my github page</a>. I strongly recommend reading <a href="http://leon.bottou.org/publications/pdf/lin-2006.pdf" target="_blank" >Support Vector Machine Solvers</a> (from L. Bottou & C-J. Lin) for an in-depth cover of the topic, along with the <a href="http://www.csie.ntu.edu.tw/~cjlin/papers/libsvm.pdf" target="_blank" >LIBSVM</a> library. The present post naturally follows this <a href="http://tullo.ch/articles/svm-py/" target="_blank" >introduction on SVMs</a>.</p>
-
-                    <h2>Support Vector Machines - The model</h2>
-
-                    <p>
-                    <div><span class="image captioned right" style="max-width:300px"><img src="Images/blog/svm/optimal-hyperplane.png" alt=""><h5>Figure 1: <i>An optimal hyperplane.</i></h5></span></div>
-                    <a href="https://en.wikipedia.org/wiki/Support_vector_machine" target="_blank" >Support vector machines</a> (SVMs) are supervised learning models for classification (or regression) defined by <i>supporting hyperplanes</i>.
-                    SVM is one of the most widely used algorithms since it relies on strong theoretical foundations and has good performance in practice.
-                    <br><br>
-                     As illustrated on Figure 1, SVMs represent examples as points in space, mapped so that the examples of the different categories are divided by a clear gap that is as wide as possible. New examples are then mapped into that same space and assigned a category based on which side of the gap they fall.
-                    <!-- This hyperplane is optimal in the sense that if the data is separable, it is the one with the maximum margin as shown on the Figure 1. -->
-                    <br><br>
-                    Let's consider a dataset
-                    <!-- \begin{equation} -->
-                    $D = { (\mathbf{x}_{i}, y_{i}), \mathbf{x} \in \mathbb{R}^d, y \in \{ -1, 1 \}}$
-                    <!-- \end{equation} -->
-                    , and $\phi$ a feature mapping - a possibly non-linear function used to get features from the datapoints $\{x_i\}$.
-                    <br>
-                    The main idea is to find an hyperplane $\w^*$ separating our dataset and maximising the <i>margin</i> of this hyperplane:
-                    <br><br>
-                    \begin{equation} \label{eq:hard_objective}
-                    \min _{\w, b} \mathcal{P}(\w, b) = \cfrac{1}{2} \w^2
-                     \end{equation}
-                     \begin{equation} \label{eq:hard_conditions}
-                    \text{subject to} \  \forall i \ \ y_i(\w^T \phi(\x_i)+b) \ge 1
-                    \end{equation}
-                    The conditions (\ref{eq:hard_conditions}) enforce that datapoints (after being mapped through $\phi$) from the first (respectively second) category lie below (respectively above) the hyperplane $\w^*$, while the objective (\ref{eq:hard_objective}) maximises the <i>margin</i> (the distance between the hyperplane $\w^*$ and the closest example).
-                    </p>
-                    <h3> Soft margin</h3>
-                    <p>
-                    We implicitly made the assumption that the dataset $D$ was <i>separable</i>: that there exists an hyperplane $\w^* \in \mathbb{R}^d$ such that all red points  (i.e. $y=-1)$ lie on one side of the hyperplane (i.e. $\w^T \phi(\x_i)+b \le 0$) and blue points (y=$+1)$ lie on the other side of the hyperplane (i.e. $\w^T \phi(\x_i)+b \ge 0$).
-                    This formulation is called <i>hard margin</i>, since the margin cannot let some datapoints <i>go through</i> (all datapoints are well classified).
-                    <br>This assumption can be relaxed by introducing positive slack variables $\mathbf{\xi}=(\xi_1, \dots, \xi_n)$
-                    allowing some examples to violate the margin constraints (\ref{eq:hard_conditions}).
-                    $\xi_i$ are non-zero only if $\x_i$ sits on the wrong side of the hyperplane, and is equal to the distance between $\x_i$ and the hyperplane $\w$.
-                    Then an hyperparameter $C$ controls the compromise between large margins and small margin violations.
-                    <!-- This is formalised as the following constrained optimisation problem: -->
-                    </p>
-
-                    <!-- <h3>Kernel Trick</h3>
-                    <p>Although SVMs are linear models, they can perform non-linear classification/regression using the so-called <i>kernel trick</i>, by implicitly mapping their inputs into high-dimensional feature spaces.</p> -->
-
-
-                    <!-- <h3> Formulation </h3> -->
-
-                    <p>
-                    \begin{equation} \label{eq:hard_primal}
-                    \min _{\w, b, \mathbf{\xi}} \mathcal{P}(\w, b, \mathbf{\xi}) = \cfrac{1}{2} \w^2 + C \sum_{i=1}^n \xi_i \\
-                    \text{subject to} \begin{cases} \forall i \quad y_i(\w^T \phi(\x_i)+b) \ge 1 - \xi_i \\ 
-                    \forall i \quad \xi_i \ge 0 \end{cases}
-                    \end{equation}
-
-
-
-                    </p>
-
-
-                    <!-- <code data-gist-id="https://gist.github.com/emilemathieu/c8873e7a3f1aca7d123bea7bc9305627.js"></code> -->
-
-                    <h2>How to fit the model ?</h2>
-                    <p>Once one have such a mathematical representation of the model through an optimisation problem, the next natural question arising is <i> how should we solve this problem (once we know it is well-posed) ?</i>
-                    The SVM solution is the optimum of a well defined convex optimisation problem (\ref{eq:hard_primal}).
-                    Since the optimum does not depend on the manner it has been calculated, the choice of a particular optimisation algorithm can be made on the sole basis of its computational requirements.
-                    <!-- The Python's method <i>_compute_weights</i> can therefore be implemented in several ways, and we'll present an efficient implementation. -->
-                    </p>
-
-                    <h3>Dual formulation</h3>
-
-                    <p>
-                    Directly solving (\ref{eq:hard_primal}) is difficult because the constraints are quite complex.
-                    A classic move is then to simplify this problem via <i>Lagrangian duality</i> (see <a href="http://leon.bottou.org/publications/pdf/lin-2006.pdf">L. Bottou et al</a> for more details), yielding the <i>dual</i> optimisation problem:
-
-                    \begin{equation} \label{eq:soft_dual}
-                    \max _{\alpha} \mathcal{D}(\alpha) = \sum_{i=1}^n \alpha_i - \cfrac{1}{2} \sum_{i,j=1}^n y_i \alpha_i y_j \alpha_j \mathbf{K}(\x_i, \x_j) \\
-                    \end{equation}  
-                    \begin{equation}  \label{eq:soft_dual_cons}
-                    \text{subject to} \begin{cases} \forall i \quad 0 \le \alpha_i \le C \\
-                    \sum_i y_i\alpha_i = 0 \end{cases}
-                    \end{equation} 
-
-                    with $\{\alpha_i\}_{i=1,\dots,n}$ being the dual coefficients to solve and $\mathbf{K}$ being the kernel associated with $\phi$: $\forall i,j \ \ \mathbf{K}(\x_i, \x_j)=\left< \phi(\x_i) , \phi(\x_j)\right>$. That problem is much easier to solve since the constraints are much simpler.
-                    Then, the direction $\w^*$ of the optimal hyperplane is recovered from a solution $\alpha^*$ of the dual optimisation problem (\ref{eq:soft_dual}-\ref{eq:soft_dual_cons}) (by forming the Lagragian and taking its minimum w.r.t. $\w$ - which is a strongly convex function):
-                    \begin{equation}
-                    \w^* = \sum_{i} \alpha^*_i y_i \phi(\x_i)
-                    \end{equation}
-
-                    The optimal hyperplane is therefore a weighted combination over the datapoints with non-zero dual coefficient $\alpha^*_i$. Those datapoints are therefore called <i>support vectors</i>, hence <i>«support vector machines»</i>. This property is quite elegant and really useful since in practice only a few $\alpha^*_i$ are non-zeros. Hence, a new datapoint prediction only requires to evaluate:
-
-                    \begin{equation}
-                    \text{sign}\left(\w^{*T} \phi(\x)+b\right) = \text{sign}\left(\sum_{i} \alpha^*_i y_i \phi(\x_i)^T\phi(\mathbf{x}) +b\right)
-                    = \text{sign}\left(\sum_{i} \alpha^*_i y_i \mathbf{K}(\mathbf{x}_i, \mathbf{x}) +b \right)
-                    \end{equation}
-                    </p>
-
-                    <h3>Quadratic Problem solver</h3>
-                    <p>
-                    The SVM optimisation problem (\ref{eq:soft_dual}) is a Quadratic Problem (QP), a well studied class of optimisation problems for which  good libraries has been developed for.
-                    This is the approach taken in this <a href="http://tullo.ch/articles/svm-py/">intro on SVM</a>, relying on the Python's quadratic program solver <a href="http://cvxopt.org">cvxopt</a>.
-                    <br>
-                    Yet this approach can be inefficient since such packages were often designed to take advantage of sparsity in the quadratic part of the objective function. Unfortunately, the SVM kernel matrix $\mathbf{K}$ is rarely sparse but sparsity occurs in the <i>solution</i> of the SVM problem.
-                    Moreover, the specification of a SVM problem rarely fits in memory and generic optimisation packages sometimes make extra work to locate the optimum with high accuracy which is often useless.
-                    Let's then described an algorithm tailored to efficiently solve that optimisation problem.
-
-                    </p>
-
-                    <h3>The Sequential Minimal Optimisation (SMO) algorithm</h3>
-                    <p>
-                    One way to avoid the inconveniences above-mentioned is to rely on the decomposition method.
-                    The idea is to decompose the optimisation problem in a sequence of subproblems where only a subset of coefficients $\alpha_i$, $i \in \mathcal{B}$ needs to be optimised, while leaving the remaining coefficients $\alpha_j$, $j \notin \mathcal{B}$ unchanged:
-
-                    \begin{equation} \label{eq:smo}
-                    \max _{\alpha'} \mathcal{D}(\alpha') = \sum_{i=1}^n \alpha'_i - \cfrac{1}{2} \sum_{i,j=1}^n y_i \alpha'_i y_j \alpha'_j \mathbf{K}(\x_i, \x_j) \\
-                    \text{subject to} \begin{cases} \forall i \notin \mathcal{B}  \quad \alpha'_i=\alpha_i  \\
-                    \forall i \in \mathcal{B} \quad 0 \le \alpha'_i \le C \\
-                    \sum_i y_i\alpha'_i = 0 \end{cases}
-                    \end{equation}
-
-                    <!-- or equivalently
-
-                    \begin{equation}
-                    \max _{\alpha'} \mathcal{D}(\alpha') = \sum_{i=1}^n \alpha'_i - \cfrac{1}{2} \sum_{i,j=1}^n y_i \alpha'_i y_j \alpha'_j \mathbf{K}(\x_i, \x_j) \\
-                    \text{subject to} \begin{cases} \forall i \notin \mathcal{B}  \quad \alpha'_i=\alpha_i  \\
-                    \forall i \in \mathcal{B} \quad 0 \le \alpha'_i \le C \\
-                    \sum_i y_i\alpha'_i = 0 \end{cases}
-                    \end{equation} -->
-
-                    One need to decide how to choose the working set $\mathcal{B}$ for each subproblem. The simplest is to always use the smallest possible working set, that is, two elements (such as the <i>maximum violating pair scheme</i>, which is discussed in Section 7.2 in <a href="http://leon.bottou.org/publications/pdf/lin-2006.pdf" target="_blank" >Support Vector Machine Solvers</a> ). The equality constraint $\sum_i y_i \alpha'_i = 0$ then makes this a <i>one dimensional</i> optimisation problem.
-
-                    <br><br>
-                    <div><span class="image captioned right" style="max-width:450px"><img src="Images/blog/svm/directon_search.png" alt=""><h5>Figure 2: <i>Direction search - from L. Bottou & C-J. Lin.</i></h5></span></div>
-                    The subproblem optimisation can then be achieved by performing successive <i>direction searches</i> along well chosen successive directions.
-                    Such a method seeks to maximizes an optimisation problem restricted to the half line ${\mathbf{\alpha} + \lambda \mathbf{u}, \lambda \in \Lambda}$, with $\mathbf{u} = (u_1,\dots,u_n)$ a <i>feasible direction</i> (i.e. can slightly move the point $\mathbf{\alpha}$ along direction $\mathbf{u}$ without violating the constraints).
-
-                    <br>
-                    The equality constraint (\ref{eq:smo}) restricts $\mathbf{u}$ to the linear subspace $\sum_i y_i u_i = 0$.
-                    Each subproblem is therefore solved by performing a search along a direction $\mathbf{u}$ containing only two non zero coefficients: ${u}_i = y_i$ and ${u}_j = −y_j$.
-                    
-                    <br><br>
-                    The set $\Lambda$ of all coefficients $\lambda \ge 0$ is defined such that the point $\mathbf{\alpha} + \lambda \mathbf{u}$ satisfies the constraints. Since the feasible polytope is convex and bounded $\Lambda = [0, \lambda^{\max}]$.
-                    Direction search is expressed by the simple optimisation problem
-                    \begin{equation}
-                    \lambda^* =  \arg\max_{\lambda \in \Lambda}{\mathcal{D}(\mathbf{\alpha }+ \lambda \mathbf{u})}
-                    \end{equation}
-
-                    Since the dual objective function is quadratic, $\mathcal{D}(\mathbf{\alpha }+ \lambda \mathbf{u})$ is shaped like a parabola. The location of its maximum $\lambda^+$ is easily computed using Newton’s formula:
-
-                    \begin{equation}
-                    \lambda^+ = \cfrac{ \partial \mathcal{D}(\mathbf{\alpha }+ \lambda \mathbf{u}) / \partial \lambda \ |_{\lambda=0} } {\partial^2 \mathcal{D}(\mathbf{\alpha }+ \lambda \mathbf{u}) / \partial \lambda^2 \ |_{\lambda=0}} = \cfrac{\mathbf{g}^T \mathbf{u}}{\mathbf{u}^T \mathbf{H} \mathbf{u}}
-                    \end{equation}
-                    </p><p>
-                    where vector $\mathbf{g}$ and matrix $\mathbf{H}$ are the gradient and the Hessian of the dual objective function $\mathcal{D}(\mathbf{\alpha})$:
-
-                    \begin{equation}
-                    g_i  = 1 - y_i \sum_j{y_j \alpha_j K_{ij}} \quad \text{and} \quad H_{ij} = y_i y_j K_{ij}
-                    \end{equation}
-
-                    Hence $\lambda^* = \max \left(0, \min \left(\lambda^{\max}, \lambda^+ \right)\right) = \max \left(0, \min \left(\lambda^{\max}, \cfrac{\mathbf{g}^T \mathbf{u}}{\mathbf{u}^T \mathbf{H} \mathbf{u}} \right)\right)$.
-
-                   <!--  The <i>Modified Gradient Projection</i> method further restrict the choice of the successive search directions $\mathbf{u}$ to conjugate successive search directions  -->
-
-                    <!-- <br><br>
-                    I won't go into details on the way to select the working sets is the maximum violating pair scheme, which is discussed in Section 7.2 in <a href="http://leon.bottou.org/publications/pdf/lin-2006.pdf" target="_blank" >Support Vector Machine Solvers</a> (from L. Bottou & C. Lin). -->
-                    </p>
-
-                    <h3>Implementation</h3>
-
-                    From a Python's class point of view, an SVM model can be represented via the following attributes and methods:
-                    <script src="https://gist.github.com/emilemathieu/c8873e7a3f1aca7d123bea7bc9305627.js"></script>
-
-                    Then the <b>_compute_weights</b> method is implemented using the SMO algorithm described above:
-                    <script src="https://gist.github.com/emilemathieu/10f0b4a596c5ad571d8356f426b128a9.js"></script>
-
-                    <!-- kernel trick; different kernels can be used such as the classic ones below -->
-                    <!-- <script src="https://gist.github.com/emilemathieu/026df8545b880e7814ddc081a55a0e70.js"></script> -->
-
-
-                    <!-- <h3>Demonstration</h3> -->
-
-
-                    <br><br>
-                    <h2>Demonstration</h2>
-                    <p>
-                    We demonstrate this algorithm on a synthetic dataset drawn from a two dimensional standard normal distribution.
-                    Running the <a href="https://github.com/emilemathieu/blog_svm/blob/master/code/example.py">example script</a> will generate the synthetic dataset, then train a kernel SVM via the SMO algorithm and eventually plot the predicted categories.
-                    </p>
-
-                    <div class="image captioned row 100% special">
-                            <div class="6u 6u$(medium)"><span class="image captioned fit"><img src="Images/blog/svm/plot1.pdf" alt=""></span></div>
-                            <div class="6u 6u$(medium)"><span class="image captioned fit"><img src="Images/blog/svm/plot2.pdf" alt=""></span></div>
-                            <div class="12u"><h5>Optimal hyperplane with predicted labels for radial basis (left) and linear (right) kernel SVMs.</h5></div>
-                        </div>
-
-                    <p>
-                    The material and code is available on <a href="https://github.com/emilemathieu/ImageClassificationChallenge/tree/master/code/mllib/svm" target="_blank" >my github page</a>. I hope you enjoyed that tutorial !
-                    </p>
-
-                    <h3>Acknowledgments</h3>
-                    <p>I’m grateful to Thomas Pesneau for his comments.</p>
-
-                    <p>
-                        <div class="social"">
-                            <span class="twitter">
-                                <a href="https://twitter.com/share" class="twitter-share-button"{count} data-url="http://emilemathieu.fr/blog_svm.html" data-size="default">Tweet</a>
-                            </span>
-                            <span class="google">
-                                <div class="g-plusone" data-href="http://emilemathieu.fr/blog_svm.html"></div>
-                            </span>
-                            <span class="Facebook">
-                                <div id="fb-root"></div>
-                                <div class="fb-share-button" data-href="http://emilemathieu.fr/blog_svm.html" data-layout="button_count" style="height: 21px; width: 85px" allowTransparency="true"></div>
-                            </span>
-                        </div>
-                    </p>
-
-<!-- Share buttons UI -->
-<style type="text/css">
-/* This gets Google to fall into place */
-.social {
-    font-size: 1px;
-    text-align: right;
-}
-
-/* This gets Facebook to fall into place */
-.social iframe {
-    vertical-align: middle;
-}
-
-/* Set an optional width for your button wrappers */
-.social span {
-    display: inline-block;
-    /*width: 110px;*/
-}
-
-.social .twitter {
-    margin-right: 6px;
-}
-.social .twitter a {
-    margin-left: 5px;
-    margin-top: 2px;
-    color: #4e5665;
-    font-size: 11px;
-    line-height: 18px;
-}
-.social .google {
-    width: 83px;
-}
-.social .Facebook {
-    width: 85px;
-}
-.social .Facebook div span {
-    vertical-align: middle !important;
-}
-</style>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-<script src="https://apis.google.com/js/platform.js" async defer>
-  {lang: 'en-GB'}
-</script>
-
-<script>window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
-  return t;
-}(document, "script", "twitter-wjs"));</script>
-
-<div id="disqus_thread"></div>
-<script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-
-var disqus_config = function () {
-this.page.url = 'http://emilemathieu.fr';  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = 'svm'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://http-emilemathieu-fr.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jean-François Ton — Soft-Margin Kernel SVMs</title>
+  <meta
+    name="description"
+    content="Jean-François Ton explains the intuition and implementation details behind an efficient soft-margin kernel SVM solver in Python."
+  />
+  <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <script defer src="js/reveal.js"></script>
+  <script defer src="js/papers.js"></script>
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="site-header__inner">
+      <a class="logo" href="index.html" aria-label="Jean-François Ton home">JF TON</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="works.html">Research</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="grid" style="gap: clamp(1.75rem, 3.5vw, 2.5rem);">
+        <span class="badge">Tutorial</span>
+        <h1 class="hero__headline">An efficient soft-margin kernel SVM from first principles.</h1>
+        <p class="hero__description">
+          A structured recap of the optimisation problem, kernel trick, and numerical considerations behind a compact Python
+          implementation of support vector machines.
+        </p>
+        <div class="hero__meta" style="gap: 0.75rem;">
+          <span class="pill">August 8, 2018</span>
+          <span class="pill">Educational series</span>
+        </div>
+        <div class="hero__meta" style="gap: 1rem;">
+          <a class="button" href="#intuition">Skip to the intuition</a>
+          <a class="button button--ghost" href="https://github.com/emilemathieu/ImageClassificationChallenge/tree/master/code/mllib/svm" target="_blank" rel="noopener">Open the code</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--narrow" id="intuition">
+      <h2 class="section-title">The high-level picture</h2>
+      <div class="grid" style="gap: clamp(1.5rem, 3vw, 2.5rem);">
+        <article class="contact-card reveal-on-scroll">
+          <strong>Maximise the margin</strong>
+          <p>
+            The primal objective favours wide, separating hyperplanes. Soft-margin slack variables introduce a controlled way
+            to handle misclassified points.
+          </p>
+        </article>
+        <article class="contact-card reveal-on-scroll">
+          <strong>Leverage kernels</strong>
+          <p>
+            Map inputs to a higher-dimensional feature space where linear separators exist. The kernel trick lets us operate
+            in that space implicitly, avoiding explicit basis expansions.
+          </p>
+        </article>
+        <article class="contact-card reveal-on-scroll">
+          <strong>Optimise efficiently</strong>
+          <p>
+            Coordinate descent and decomposition methods make the dual problem tractable even for medium-sized datasets.
+            Practical solvers balance speed with numerical stability.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--narrow" id="math">
+      <h2 class="section-title">From primal to dual</h2>
+      <div class="grid" style="gap: clamp(1.5rem, 3vw, 2.5rem);">
+        <article class="focus-card reveal-on-scroll" style="background: rgba(16, 20, 24, 0.04); box-shadow: none;">
+          <div class="grid" style="gap: 0.75rem;">
+            <strong>Primal formulation</strong>
+            <p>
+              Minimise <em>½‖w‖² + C∑ξᵢ</em> subject to label-consistent constraints. Slack variables ξᵢ measure violations of the
+              margin and are weighted by the regularisation parameter C.
+            </p>
+          </div>
+        </article>
+        <article class="focus-card reveal-on-scroll" style="background: rgba(16, 20, 24, 0.04); box-shadow: none;">
+          <div class="grid" style="gap: 0.75rem;">
+            <strong>Dual objective</strong>
+            <p>
+              By introducing Lagrange multipliers αᵢ we solve a quadratic program bounded between 0 and C with the constraint
+              ∑αᵢyᵢ = 0. Kernels appear naturally via dot products between feature-mapped samples.
+            </p>
+          </div>
+        </article>
+        <article class="focus-card reveal-on-scroll" style="background: rgba(16, 20, 24, 0.04); box-shadow: none;">
+          <div class="grid" style="gap: 0.75rem;">
+            <strong>Decision function</strong>
+            <p>
+              After optimisation, only support vectors (samples with αᵢ &gt; 0) contribute to predictions:
+              <em>f(x) = sign(∑αᵢyᵢK(xᵢ, x) + b)</em>.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--narrow" id="implementation">
+      <h2 class="section-title">Implementation notes</h2>
+      <div class="focus-grid">
+        <article class="focus-card reveal-on-scroll">
+          <span class="pill">Optimisation</span>
+          <h3>Sequential minimal optimisation</h3>
+          <p>
+            Update pairs of dual variables at a time, reusing heuristics popularised by Platt and refined in LIBSVM. This keeps
+            computations lightweight and numerically stable.
+          </p>
+        </article>
+        <article class="focus-card reveal-on-scroll">
+          <span class="pill">Kernels</span>
+          <h3>RBF &amp; polynomial</h3>
+          <p>
+            The minimal library implements radial basis and polynomial kernels, but the interface makes it easy to plug in
+            custom metrics that better reflect your dataset.
+          </p>
+        </article>
+        <article class="focus-card reveal-on-scroll">
+          <span class="pill">Practical tips</span>
+          <h3>Scaling &amp; evaluation</h3>
+          <p>
+            Always standardise features, tune C and γ via cross-validation, and monitor support vector counts to ensure the
+            model generalises.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--narrow" id="extras">
+      <h2 class="section-title">Try it yourself</h2>
+      <div class="grid" style="gap: clamp(1.5rem, 3vw, 2.5rem);">
+        <article class="contact-card reveal-on-scroll">
+          <strong>Hands-on notebooks</strong>
+          <p>
+            Example Jupyter notebooks demonstrate binary classification on synthetic datasets and image patches. Extend them to
+            multi-class problems via one-vs-rest.
+          </p>
+        </article>
+        <article class="contact-card reveal-on-scroll">
+          <strong>Recommended reading</strong>
+          <p>
+            Dive deeper with Lin &amp; Bottou’s “Support Vector Machine Solvers” and the LIBSVM documentation for production-grade
+            details.
+          </p>
+        </article>
+        <article class="contact-card reveal-on-scroll">
+          <strong>Share improvements</strong>
+          <p>
+            If you adapt the solver for large-scale sparse data or integrate it into an alignment workflow, I’d love to feature
+            your notes here. Drop me a line via the contact page.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p>© <span id="year"></span> Jean-François Ton. Crafted for GitHub Pages.</p>
+      <div class="social-links" aria-label="Social links">
+        <a href="https://scholar.google.com/citations?user=WWVOu4kAAAAJ" target="_blank" rel="noopener">Scholar</a>
+        <a href="https://github.com/sAviOr287" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/jean-fran%C3%A7ois-ton-b172a5102/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>

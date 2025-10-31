@@ -1,12 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jean-François Ton — Miscellany</title>
+  <meta
+    name="description"
+    content="Side explorations by Jean-François Ton, spanning experimental tools, mentoring notes, and creative collaborations."
+  />
+  <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <script defer src="js/reveal.js"></script>
+  <script defer src="js/papers.js"></script>
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="site-header__inner">
+      <a class="logo" href="index.html" aria-label="Jean-François Ton home">JF TON</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="works.html">Research</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<!DOCTYPE HTML>
-<!--
-    Spatial by TEMPLATED
-    templated.co @templatedco
-    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
-<html>
-        <head>
-        <title>Jean-Francois Ton - Misc</title>
-        <p>  SOON TO BE UPDATED<p>
+  <main>
+    <section class="hero">
+      <div class="grid" style="gap: clamp(1.75rem, 3.5vw, 2.5rem);">
+        <span class="badge">Beyond publications</span>
+        <h1 class="hero__headline">A living cabinet of prototypes, teaching notes, and curiosity-fuelled projects.</h1>
+        <p class="hero__description">
+          Not every idea becomes a paper. This space collects the experiments that keep me energised—community initiatives,
+          alignment tooling sketches, and creative collaborations that complement my day-to-day research.
+        </p>
+        <div class="hero__meta" style="gap: 1rem;">
+          <a class="button" href="#spotlight">See the latest</a>
+          <a class="button button--ghost" href="contact.html">Suggest a collaboration</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--narrow" id="spotlight">
+      <h2 class="section-title">Current spotlight</h2>
+      <div class="focus-grid">
+        <article class="focus-card reveal-on-scroll">
+          <span class="pill">Open-source</span>
+          <h3>Reward model evaluation toolkit</h3>
+          <p>
+            Lightweight scripts to stress-test preference models on edge cases harvested from synthetic judges and
+            red-teaming sessions.
+          </p>
+          <p class="text-muted">In private alpha with collaborators at TikTok and Oxford.</p>
+        </article>
+        <article class="focus-card reveal-on-scroll">
+          <span class="pill">Mentorship</span>
+          <h3>Alignment study group playbook</h3>
+          <p>
+            Facilitator notes for running six-week cohorts focused on RLHF, scalable oversight, and agent evaluation—complete
+            with reading lists and reflection prompts.
+          </p>
+          <p class="text-muted">Reach out if you’d like to adapt it for your lab or meetup.</p>
+        </article>
+        <article class="focus-card reveal-on-scroll">
+          <span class="pill">Creative</span>
+          <h3>AI &amp; poetry salon</h3>
+          <p>
+            A quarterly gathering exploring how language models can augment, not replace, human-led creative writing. Expect
+            collaborative drafts, generative prompts, and live readings.
+          </p>
+          <p class="text-muted">Co-hosted with friends in London; recordings available on request.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--narrow" id="archive">
+      <h2 class="section-title">Archive &amp; ongoing threads</h2>
+      <div class="grid" style="gap: clamp(1.5rem, 3vw, 2.5rem);">
+        <article class="contact-card reveal-on-scroll">
+          <strong>Workshop materials</strong>
+          <p>
+            Slide decks and lab exercises from tutorials on kernel methods, conformal prediction, and policy evaluation.
+            I’m incrementally translating them into interactive notebooks.
+          </p>
+        </article>
+        <article class="contact-card reveal-on-scroll">
+          <strong>Community notes</strong>
+          <p>
+            Recaps from panels, reading groups, and alignment hackathons. These often seed ideas that later turn into
+            publications or blog posts.
+          </p>
+        </article>
+        <article class="contact-card reveal-on-scroll">
+          <strong>Personal experiments</strong>
+          <p>
+            Everything from sensor data sonification to agent orchestration prototypes that didn’t make it past the
+            exploration phase—but taught me something useful.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p>© <span id="year"></span> Jean-François Ton. Crafted for GitHub Pages.</p>
+      <div class="social-links" aria-label="Social links">
+        <a href="https://scholar.google.com/citations?user=WWVOu4kAAAAJ" target="_blank" rel="noopener">Scholar</a>
+        <a href="https://github.com/sAviOr287" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/jean-fran%C3%A7ois-ton-b172a5102/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
