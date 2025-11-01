@@ -3,6 +3,42 @@ const libraryContainer = document.querySelector('[data-papers-target="library"]'
 const filtersContainer = document.querySelector('[data-papers-filters]');
 const featuredFallback = featuredContainer?.querySelector('[data-paper-error]') || null;
 
+const VENUE_PATTERNS = [
+  { regex: /international conference on machine learning|icml/i, short: 'ICML' },
+  { regex: /international conference on learning representations|learning representations|iclr/i, short: 'ICLR' },
+  { regex: /conference on neural information processing systems|advances in neural information processing systems|neurips/i, short: 'NeurIPS' },
+  { regex: /association for the advancement of artificial intelligence|aaai/i, short: 'AAAI' },
+  { regex: /international conference on artificial intelligence and statistics|aistats/i, short: 'AISTATS' },
+  { regex: /conference on empirical methods in natural language processing|emnlp/i, short: 'EMNLP' },
+  { regex: /annual meeting of the association for computational linguistics|acl/i, short: 'ACL' },
+  { regex: /journal of machine learning research|jmlr/i, short: 'JMLR' },
+  { regex: /journal of spatial statistics/i, short: 'J. Spatial Statistics' },
+  { regex: /sigir/i, short: 'SIGIR' },
+  { regex: /naacl/i, short: 'NAACL' },
+  { regex: /arxiv/i, short: 'arXiv' },
+  { regex: /us patent/i, short: 'US Patent' },
+  { regex: /european patent/i, short: 'EU Patent' },
+  { regex: /preprint/i, short: 'Preprint' },
+];
+
+const TAG_LABELS = {
+  'LLM Alignment': 'LLMs',
+  'Preference Learning': 'Preference',
+  'Multi-Agent Systems': 'Multi-Agent',
+  'Kernel Methods': 'Kernels',
+  'Responsible AI': 'Responsible AI',
+  'Causality': 'Causality',
+  'Patent': 'Patent',
+  'Recommender Systems': 'RecSys',
+  'Bayesian Inference': 'Bayesian',
+  'Uncertainty': 'Uncertainty',
+  'Meta Learning': 'Meta-Learning',
+  'Bandits': 'Bandits',
+  'Reinforcement Learning': 'RL',
+  'Efficient Methods': 'Efficiency',
+  'Tool Use': 'Tool Use',
+};
+
 if (featuredFallback) {
   featuredFallback.hidden = true;
 }
@@ -65,13 +101,16 @@ function renderPapers(list, container) {
     const card = document.createElement('article');
     card.className = 'paper-card reveal-on-scroll';
     card.style.transitionDelay = `${Math.min(index * 90, 360)}ms`;
+    const dateLabel = paper.display_date || formatDate(paper.date);
+    const venueLabel = formatVenue(paper.venue);
+    const authorsLabel = highlightAuthor(paper.authors || '');
 
     const imageMarkup = paper.thumbnail
       ? `<img src="${paper.thumbnail}" alt="${paper.title} thumbnail" loading="lazy" />`
       : '';
 
     const tagsMarkup = (paper.tags || [])
-      .map((tag) => `<span class="pill">${tag}</span>`)
+      .map((tag) => `<span class="pill">${formatTag(tag)}</span>`)
       .join('');
 
     const linksMarkup = Object.entries(paper.links || {})
@@ -87,15 +126,19 @@ function renderPapers(list, container) {
       <div class="paper-card__body">
         <h3>${paper.title}</h3>
         <div class="paper-card__meta">
-          <span>${paper.display_date || formatDate(paper.date)}</span>
-          ${paper.venue ? `<span>${paper.venue}</span>` : ''}
-          ${paper.authors ? `<span>${paper.authors}</span>` : ''}
+          ${dateLabel ? `<span>${dateLabel}</span>` : ''}
+          ${venueLabel ? `<span>${venueLabel}</span>` : ''}
+          ${authorsLabel ? `<span>${authorsLabel}</span>` : ''}
         </div>
         ${paper.summary ? `<p>${paper.summary}</p>` : ''}
         ${tagsMarkup ? `<div class="hero__meta">${tagsMarkup}</div>` : ''}
         ${linksMarkup ? `<div class="paper-card__links">${linksMarkup}</div>` : ''}
       </div>
     `;
+
+    if (!paper.thumbnail) {
+      card.classList.add('paper-card--no-image');
+    }
 
     container.appendChild(card);
   });
@@ -131,10 +174,10 @@ function initialiseFilters(papers, filtersContainer, libraryContainer) {
 
   const renderButtons = (activeTag = 'All') => {
     filtersContainer.innerHTML = '';
-    const allButton = createFilterButton('All', activeTag === 'All');
+    const allButton = createFilterButton('All', 'All', activeTag === 'All');
     filtersContainer.appendChild(allButton);
     tags.forEach((tag) => {
-      const button = createFilterButton(tag, tag === activeTag);
+      const button = createFilterButton(tag, formatTag(tag), tag === activeTag);
       filtersContainer.appendChild(button);
     });
   };
@@ -158,12 +201,12 @@ function initialiseFilters(papers, filtersContainer, libraryContainer) {
   });
 }
 
-function createFilterButton(label, isActive) {
+function createFilterButton(value, displayLabel, isActive) {
   const button = document.createElement('button');
   button.type = 'button';
   button.className = 'filter-button' + (isActive ? ' is-active' : '');
-  button.textContent = label;
-  button.setAttribute('data-filter-tag', label);
+  button.textContent = displayLabel;
+  button.setAttribute('data-filter-tag', value);
   button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
   return button;
 }
@@ -181,4 +224,28 @@ function formatDate(value) {
   }
   const date = new Date(value);
   return date.toLocaleString('en-US', { month: 'short', year: 'numeric' });
+}
+
+function formatVenue(venue) {
+  if (!venue) {
+    return '';
+  }
+  for (const { regex, short } of VENUE_PATTERNS) {
+    if (regex.test(venue)) {
+      return short;
+    }
+  }
+  return venue;
+}
+
+function formatTag(tag) {
+  return TAG_LABELS[tag] || tag;
+}
+
+function highlightAuthor(authors) {
+  if (!authors) {
+    return '';
+  }
+  const pattern = /(Jean[-\s]?Fran[çc]ois Ton\*?|JF Ton\*?|J\.?F\.? Ton\*?|Ton Jean[-\s]?Fran[çc]ois\*?|TON Jean-Francois\*?)/gi;
+  return authors.replace(pattern, (match) => `<strong>${match}</strong>`);
 }
