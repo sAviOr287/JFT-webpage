@@ -6,16 +6,34 @@
   <title>Jean-François Ton — Academic Profile</title>
   <meta name="description" content="Academic profile of Jean-François Ton, Senior Research Scientist at ByteDance focusing on responsible large language model alignment." />
   <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon" />
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('jft-theme');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = stored || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (error) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="css/site.css" />
 </head>
 <body>
   <header id="top" class="site-header">
     <p class="site-header__title">Jean-François Ton</p>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="#about">About</a>
-      <a href="#publications">Recent Publications</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="site-header__actions">
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="works.html">Publication list</a>
+        <a href="#publications">Recent Publications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-pressed="false">
+        <span class="theme-toggle__label">Dark mode</span>
+      </button>
+    </div>
   </header>
 
   <main>
@@ -26,13 +44,114 @@
         </figure>
         <div class="intro__summary">
           <h1 class="intro__title">Jean-François Ton</h1>
-          <p class="intro__role">Senior Research Scientist · ByteDance Research / SEED</p>
-          <p class="intro__bio">I build alignment and evaluation tooling for large language models, focusing on post-training workflows such as preference data pipelines, reward models, and multi-agent orchestration that keeps assistants reliable at scale.</p>
-          <p class="intro__bio">Earlier in my career I explored kernel methods, causal inference, and uncertainty quantification—both Bayesian and conformal—to understand how models reason, calibrate, and generalise.</p>
-          <p class="intro__bio">I earned a BSc at <a href="https://www.imperial.ac.uk/" target="_blank" rel="noopener">Imperial College London</a>, followed by an MSc and DPhil at the <a href="https://www.ox.ac.uk/" target="_blank" rel="noopener">University of Oxford</a>, supervised by <a href="https://www.stats.ox.ac.uk/people/yee-whye-teh" target="_blank" rel="noopener">Prof. Yee Whye Teh</a> and <a href="https://warwick.ac.uk/fac/sci/statistics/staff/dinosejdinovic/" target="_blank" rel="noopener">Prof. Dino Sejdinovic</a>.</p>
+          <p class="intro__role">Senior Research Scientist · ByteDance SEED</p>
+          <p class="intro__bio">I’m Jean-François Ton (Jef) from Luxembourg, a Senior Research Scientist at ByteDance SEED in London.</p>
+          <p class="intro__bio">My main research interests are in preference data, reward models, and multi-agent systems. More recently I have become more interested in evolutionary algorithms, active knowledge acquisition, and open-endedness.</p>
+          <p class="intro__bio">During my DPhil I worked on kernel methods, causal inference, and Bayesian/Conformal uncertainty.</p>
+          <p class="intro__bio">I hold a BSc from <a href="https://www.imperial.ac.uk/" target="_blank" rel="noopener">Imperial College London</a> and an MSc and DPhil from the <a href="https://www.ox.ac.uk/" target="_blank" rel="noopener">University of Oxford</a>, advised by <a href="https://www.stats.ox.ac.uk/people/yee-whye-teh" target="_blank" rel="noopener">Prof. Yee Whye Teh</a> and <a href="https://sejdino.github.io" target="_blank" rel="noopener">Prof. Dino Sejdinovic</a>.</p>
+          <p class="intro__bio">Outside of work, I like playing table tennis.</p>
           <p class="intro__location">London, United Kingdom</p>
         </div>
       </div>
+    </section>
+
+    <section class="timeline-section" aria-labelledby="experience-heading">
+      <h2 id="experience-heading">Experience</h2>
+      <ol class="timeline">
+        <li class="timeline__item reveal-on-scroll">
+          <div class="timeline__badge" aria-hidden="true">
+            <img src="Images/logos/bytedance.png" alt="" />
+          </div>
+          <div class="timeline__panel">
+            <header class="timeline__header">
+              <h3>ByteDance SEED</h3>
+              <span class="timeline__dates">Apr 2022 – Present · London</span>
+            </header>
+            <p>Working on LLM post-training with a focus on reward modelling and multi-agent systems.</p>
+                      </div>
+        </li>
+        <li class="timeline__item reveal-on-scroll">
+          <div class="timeline__badge" aria-hidden="true">
+            <img src="Images/logos/amazon.png" alt="" />
+          </div>
+          <div class="timeline__panel">
+            <header class="timeline__header">
+              <h3>Amazon</h3>
+              <span class="timeline__dates">Oct 2021 – Feb 2022 · Tübingen</span>
+            </header>
+            <p>Worked with <a href="https://www.amazon.science/author/dominik-janzing" target="_blank" rel="noopener">Dominik Janzing</a> on causal inference in time-series systems.</p>
+          </div>
+        </li>
+        <li class="timeline__item reveal-on-scroll">
+          <div class="timeline__badge" aria-hidden="true">
+            <img src="Images/logos/apple.png" alt="" />
+          </div>
+          <div class="timeline__panel">
+            <header class="timeline__header">
+              <h3>Apple AI/ML</h3>
+              <span class="timeline__dates">Jul 2020 – Feb 2021 · Cupertino</span>
+            </header>
+            <p>Worked with <a href="https://www.linkedin.com/in/joshua-susskind-8ab2ab5/" target="_blank" rel="noopener">Josh Susskind</a> on RAG-based LLMs.</p>
+          </div>
+        </li>
+        <li class="timeline__item reveal-on-scroll">
+          <div class="timeline__badge" aria-hidden="true">
+            <img src="Images/logos/imperial.png" alt="" />
+          </div>
+          <div class="timeline__panel">
+            <header class="timeline__header">
+              <h3>Imperial College London</h3>
+              <span class="timeline__dates">Jun 2015 – Jul 2016 · London</span>
+            </header>
+            <p>Worked with <a href="https://www.linkedin.com/in/ben-calderhead-05b4496/?originalSubdomain=uk" target="_blank" rel="noopener">Prof. Ben Calderhead</a> on RL and unbiased estimators for SDEs.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="timeline-section" aria-labelledby="education-heading">
+      <h2 id="education-heading">Education</h2>
+      <ol class="timeline">
+        <li class="timeline__item reveal-on-scroll">
+          <div class="timeline__badge" aria-hidden="true">
+            <img src="Images/logos/oxford.png" alt="" />
+          </div>
+          <div class="timeline__panel">
+            <header class="timeline__header">
+              <h3>University of Oxford</h3>
+              <span class="timeline__dates">Sep 2017 – Sep 2022 · Oxford, UK</span>
+            </header>
+            <p>DPhil in Statistics &amp; Machine Learning — Thesis: <em>Causal Reasoning and Meta Learning using Kernel Mean Embeddings</em>.</p>
+            <p class="timeline__note">Supervised by <a href="https://www.stats.ox.ac.uk/people/yee-whye-teh" target="_blank" rel="noopener">Prof. Yee Whye Teh</a> and <a href="https://sejdino.github.io" target="_blank" rel="noopener">Prof. Dino Sejdinovic</a>.</p>
+          </div>
+        </li>
+        <li class="timeline__item reveal-on-scroll">
+          <div class="timeline__badge" aria-hidden="true">
+            <img src="Images/logos/oxford.png" alt="" />
+          </div>
+          <div class="timeline__panel">
+            <header class="timeline__header">
+              <h3>University of Oxford</h3>
+              <span class="timeline__dates">Oct 2016 – Aug 2017 · Oxford, UK</span>
+            </header>
+            <p>MSc in Applied Statistics with Distinction (Top 10%). Published thesis work on applied statistical modelling.</p>
+            <p class="timeline__note">Recipient of the Principal’s Prize and the Archibald Jackson Prize for academic achievements.</p>
+          </div>
+        </li>
+        <li class="timeline__item reveal-on-scroll">
+          <div class="timeline__badge" aria-hidden="true">
+            <img src="Images/logos/imperial.png" alt="" />
+          </div>
+          <div class="timeline__panel">
+            <header class="timeline__header">
+              <h3>Imperial College London</h3>
+              <span class="timeline__dates">Oct 2013 – Aug 2016 · London, UK</span>
+            </header>
+            <p>BSc in Mathematics, First Class Honours (Top ~10%). Focus on statistical methods and Markov chain Monte Carlo for scientific computing.</p>
+            <p class="timeline__note">Recipient of the Best First Year Poster Prize in Statistics (score 100/100).</p>
+          </div>
+        </li>
+      </ol>
     </section>
 
     <section id="publications">
@@ -45,7 +164,7 @@
         </li>
         <li class="publication">
           <strong>Understanding Chain-of-Thought in LLMs through Information Theory</strong>
-          <span>ICML 2025 — Jean-François Ton*, Muhammad Faaiz Taufiq, Yang Liu</span>
+          <span>ICLR 2025 — Jean-François Ton*, Muhammad Faaiz Taufiq*, Yang Liu</span>
         </li>
         <li class="publication">
           <strong>ACC-Debate: An Actor-Critic Approach to Multi-Agent Debate</strong>
@@ -65,11 +184,12 @@
 
     <section id="contact">
       <h2>Contact</h2>
-      <p>If you would like to discuss collaborations, speaking invitations, or share feedback on alignment research, please reach out using the links below.</p>
+      <p>If you would like to discuss collaborations, speaking invitations, or feedback on my research, please reach out using the links below.</p>
       <div class="link-row">
         <a href="mailto:jeanfrancois287@hotmail.fr">jeanfrancois287@hotmail.fr</a>
         <a href="https://www.linkedin.com/in/jean-fran%C3%A7ois-ton-b172a5102/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://scholar.google.com/citations?user=WWVOu4kAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://x.com/jeanfrancois287" target="_blank" rel="noopener">Twitter</a>
       </div>
     </section>
   </main>
@@ -85,9 +205,16 @@
     </div>
   </footer>
 
-  <script src="js/reveal.js" defer></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    document.querySelectorAll('.timeline').forEach((list) => {
+      const items = Array.from(list.querySelectorAll('.timeline__item'));
+      items.forEach((item, index) => {
+        item.style.setProperty('--reveal-delay', `${Math.min(index * 140, 560)}ms`);
+      });
+    });
   </script>
+  <script src="js/theme-toggle.js" defer></script>
+  <script src="js/reveal.js" defer></script>
 </body>
 </html>
