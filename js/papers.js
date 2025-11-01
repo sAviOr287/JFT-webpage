@@ -148,7 +148,12 @@ const formatVenue = (paper) => {
     .trim();
 };
 
-const formatYearSuffix = (paper) => {
+const formatVenueTag = (paper, label) => {
+  const resolvedLabel = (label ?? formatVenue(paper) ?? '').trim();
+  if (!resolvedLabel) {
+    return null;
+  }
+
   const extractYear = (value) => {
     if (!value) {
       return '';
@@ -157,33 +162,12 @@ const formatYearSuffix = (paper) => {
     return match ? match[0] : '';
   };
 
-  const displayYear = extractYear(paper.display_date);
-  if (displayYear) {
-    return displayYear.slice(-2);
+  const displayYear = extractYear(paper.display_date) || extractYear(paper.date);
+  if (!displayYear) {
+    return resolvedLabel;
   }
 
-  if (paper.date) {
-    const year = new Date(paper.date).getFullYear();
-    if (!Number.isNaN(year)) {
-      return String(year).slice(-2);
-    }
-  }
-
-  return '';
-};
-
-const formatTitleWithVenue = (paper, venueLabel) => {
-  const label = (venueLabel || '').trim();
-  if (!label) {
-    return paper.title;
-  }
-
-  const yearSuffix = formatYearSuffix(paper);
-  if (yearSuffix) {
-    return `[${label} ${yearSuffix}] ${paper.title}`;
-  }
-
-  return `[${label}] ${paper.title}`;
+  return `${resolvedLabel} \u2019${displayYear.slice(-2)}`;
 };
 
 const buildPaperItem = (paper) => {
@@ -210,12 +194,22 @@ const buildPaperItem = (paper) => {
   panel.target = '_blank';
   panel.rel = 'noopener';
 
+  const venueLabel = formatVenue(paper);
+  const venueTag = formatVenueTag(paper, venueLabel);
+
+  if (venueTag) {
+    const venuePill = document.createElement('span');
+    const tagSlug = venueLabel ? venueLabel.toLowerCase().replace(/[^a-z0-9]+/g, '-') : 'generic';
+    venuePill.className = `paper-panel__tag paper-panel__tag--${tagSlug}`;
+    venuePill.textContent = venueTag;
+    panel.appendChild(venuePill);
+  }
+
   const header = document.createElement('header');
   header.className = 'timeline__header';
 
   const title = document.createElement('h3');
-  title.textContent = formatTitleWithVenue(paper, formatVenue(paper));
-
+  title.textContent = paper.title;
   header.appendChild(title);
 
   const authors = document.createElement('p');

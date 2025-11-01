@@ -27,11 +27,12 @@
     toggles.forEach((button) => {
       const isDark = theme === 'dark';
       button.setAttribute('aria-pressed', String(isDark));
+      button.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
       const label = button.querySelector('.theme-toggle__label');
       if (label) {
-        label.textContent = isDark ? 'Light mode' : 'Dark mode';
+        label.textContent = isDark ? 'Switch to light mode' : 'Switch to dark mode';
       } else {
-        button.textContent = isDark ? 'Light mode' : 'Dark mode';
+        button.textContent = isDark ? 'Switch to light mode' : 'Switch to dark mode';
       }
     });
   };

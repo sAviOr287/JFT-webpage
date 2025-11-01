@@ -23,15 +23,16 @@
   </head>
   <body>
     <header class="site-header" id="top">
-      <p class="site-header__title"><a href="index.html">Jean-François Ton</a></p>
+      <div class="site-header__title"><a class="site-header__home" href="index.html" aria-label="Home">🏠</a></div>
       <div class="site-header__actions">
         <nav aria-label="Primary" class="site-nav">
           <a href="index.html#about">About</a>
           <a aria-current="page" href="works.html">Publication list</a>
           <a href="index.html#contact">Contact</a>
         </nav>
-        <button aria-pressed="false" class="theme-toggle" type="button">
-          <span class="theme-toggle__label">Dark mode</span>
+        <button aria-pressed="false" class="theme-toggle" type="button" aria-label="Switch to dark mode">
+          <span aria-hidden="true" class="theme-toggle__icon"></span>
+          <span class="theme-toggle__label visually-hidden">Dark mode</span>
         </button>
       </div>
     </header>
