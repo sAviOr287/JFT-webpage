@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Jean-François Ton — CV</title>
+<meta content="Curriculum vitae for Jean-François Ton including experience and education history." name="description"/>
+<link href="Images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<script>
+  (function () {
+    try {
+      var stored = localStorage.getItem('jft-theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (error) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+</script>
+<link href="css/site.css" rel="stylesheet"/>
+</head>
+<body>
+<header class="site-header" id="top">
+<div class="site-header__title"><a aria-label="Home" class="site-header__home" href="index.html#about">🏠</a></div>
+<div class="site-header__actions">
+<nav aria-label="Primary" class="site-nav">
+<a href="index.html#about">About</a>
+<a href="works.html">Publications</a>
+<a aria-current="page" href="cv.html">CV</a>
+<a href="contact.html">Contact</a>
+</nav>
+<button aria-label="Switch theme" aria-pressed="false" class="theme-toggle" type="button">
+<span aria-hidden="true" class="theme-toggle__icon"></span>
+<span class="theme-toggle__label visually-hidden">Dark mode</span>
+</button>
+</div>
+</header>
+<main>
+<section aria-labelledby="experience-heading" class="timeline-section">
+<h1 class="intro__headline" id="experience-heading">Experience</h1>
+<ol class="timeline">
+<li class="timeline__item reveal-on-scroll">
+<div aria-hidden="true" class="timeline__badge">
+<img alt="" src="Images/logos/bytedance.png"/>
+</div>
+<div class="timeline__panel">
+<header class="timeline__header">
+<h3><a href="https://seed.bytedance.com/en/" rel="noopener" target="_blank">ByteDance SEED</a></h3>
+<span class="timeline__dates">Apr 2022 – Present · London</span>
+</header>
+<p>Leading preference modelling and reward optimisation for LLM post-training, working across research and product deployment teams.</p>
+</div>
+</li>
+<li class="timeline__item reveal-on-scroll">
+<div aria-hidden="true" class="timeline__badge">
+<img alt="" src="Images/logos/amazon.png"/>
+</div>
+<div class="timeline__panel">
+<header class="timeline__header">
+<h3>Amazon</h3>
+<span class="timeline__dates">Oct 2021 – Feb 2022 · Tübingen</span>
+</header>
+<p>Research intern with <a href="https://www.amazon.science/author/dominik-janzing" rel="noopener" target="_blank">Dominik Janzing</a>, building causal inference methods for time-series systems.</p>
+</div>
+</li>
+<li class="timeline__item reveal-on-scroll">
+<div aria-hidden="true" class="timeline__badge">
+<img alt="" src="Images/logos/apple.png"/>
+</div>
+<div class="timeline__panel">
+<header class="timeline__header">
+<h3>Apple AI/ML</h3>
+<span class="timeline__dates">Jul 2020 – Feb 2021 · Cupertino</span>
+</header>
+<p>Research intern with <a href="https://www.linkedin.com/in/joshua-susskind-8ab2ab5/" rel="noopener" target="_blank">Josh Susskind</a>, exploring retrieval-augmented generation for on-device assistants.</p>
+</div>
+</li>
+<li class="timeline__item reveal-on-scroll">
+<div aria-hidden="true" class="timeline__badge">
+<img alt="" src="Images/logos/imperial.png"/>
+</div>
+<div class="timeline__panel">
+<header class="timeline__header">
+<h3>Imperial College London</h3>
+<span class="timeline__dates">Jun 2015 – Jul 2016 · London</span>
+</header>
+<p>Undergraduate research intern with <a href="https://www.linkedin.com/in/ben-calderhead-05b4496/?originalSubdomain=uk" rel="noopener" target="_blank">Prof. Ben Calderhead</a>, developing reinforcement learning approaches for stochastic differential equations.</p>
+</div>
+</li>
+</ol>
+</section>
+<section aria-labelledby="education-heading" class="timeline-section">
+<h2 id="education-heading">Education</h2>
+<ol class="timeline">
+<li class="timeline__item reveal-on-scroll">
+<div aria-hidden="true" class="timeline__badge">
+<img alt="" src="Images/logos/oxford.png"/>
+</div>
+<div class="timeline__panel">
+<header class="timeline__header">
+<h3>University of Oxford</h3>
+<span class="timeline__dates">Sep 2017 – Sep 2022 · Oxford, UK</span>
+</header>
+<p>DPhil in Statistics &amp; Machine Learning. Thesis: <em>Causal Reasoning and Meta Learning using Kernel Mean Embeddings</em>.</p>
+<p class="timeline__note">Supervised by <a href="https://www.stats.ox.ac.uk/people/yee-whye-teh" rel="noopener" target="_blank">Prof. Yee Whye Teh</a> and <a href="https://sejdino.github.io" rel="noopener" target="_blank">Prof. Dino Sejdinovic</a>.</p>
+</div>
+</li>
+<li class="timeline__item reveal-on-scroll">
+<div aria-hidden="true" class="timeline__badge">
+<img alt="" src="Images/logos/oxford.png"/>
+</div>
+<div class="timeline__panel">
+<header class="timeline__header">
+<h3>University of Oxford</h3>
+<span class="timeline__dates">Oct 2016 – Aug 2017 · Oxford, UK</span>
+</header>
+<p>MSc in Applied Statistics with Distinction (Top 10%). Published thesis work on applied statistical modelling.</p>
+<p class="timeline__note">Recipient of the Principal’s Prize and the Archibald Jackson Prize for academic achievements.</p>
+</div>
+</li>
+<li class="timeline__item reveal-on-scroll">
+<div aria-hidden="true" class="timeline__badge">
+<img alt="" src="Images/logos/imperial.png"/>
+</div>
+<div class="timeline__panel">
+<header class="timeline__header">
+<h3>Imperial College London</h3>
+<span class="timeline__dates">Oct 2013 – Aug 2016 · London, UK</span>
+</header>
+<p>BSc in Mathematics, First Class Honours (Top ~10%). Focus on statistical methods and Markov chain Monte Carlo for scientific computing.</p>
+<p class="timeline__note">Recipient of the Best First Year Poster Prize in Statistics (score 100/100).</p>
+</div>
+</li>
+</ol>
+</section>
+</main>
+<footer class="footer">
+<div class="footer__inner">
+<span>© <span id="year"></span> Jean-François Ton</span>
+<ul aria-label="Footer links" class="list-inline">
+<li><a href="index.html#about">About</a></li>
+<li><a href="works.html">Publications</a></li>
+<li><a href="cv.html">CV</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</div>
+</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.querySelectorAll('.timeline').forEach((list) => {
+    const items = Array.from(list.querySelectorAll('.timeline__item'));
+    items.forEach((item, index) => {
+      item.style.setProperty('--reveal-delay', `${Math.min(index * 140, 560)}ms`);
+    });
+  });
+</script>
+<script defer="" src="js/theme-toggle.js"></script>
+<script defer="" src="js/reveal.js"></script>
+</body>
+</html>

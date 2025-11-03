@@ -483,6 +483,19 @@ section > h2 {
   line-height: 1.2;
 }
 
+.intro__ref {
+  font-size: 0.75em;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0 0.1rem;
+  color: var(--accent);
+}
+
+.intro__ref:hover,
+.intro__ref:focus-visible {
+  text-decoration: underline;
+}
+
 .intro__lead {
   font-size: 1.1rem;
   margin: 0;

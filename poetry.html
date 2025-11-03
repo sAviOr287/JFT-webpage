@@ -22,15 +22,17 @@
 </head>
 <body>
   <header id="top" class="site-header">
-    <p class="site-header__title"><a href="index.html">Jean-François Ton</a></p>
+    <div class="site-header__title"><a aria-label="Home" class="site-header__home" href="index.html#about">🏠</a></div>
     <div class="site-header__actions">
       <nav class="site-nav" aria-label="Primary">
         <a href="index.html#about">About</a>
         <a href="works.html">Publications</a>
+        <a href="cv.html">CV</a>
         <a href="contact.html">Contact</a>
       </nav>
-      <button class="theme-toggle" type="button" aria-pressed="false">
-        <span class="theme-toggle__label">Dark mode</span>
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch theme">
+        <span aria-hidden="true" class="theme-toggle__icon"></span>
+        <span class="theme-toggle__label visually-hidden">Dark mode</span>
       </button>
     </div>
   </header>
@@ -49,7 +51,8 @@
       <ul class="list-inline" aria-label="Footer links">
         <li><a href="index.html#about">About</a></li>
         <li><a href="works.html">Publications</a></li>
-        <li><a href="#top">Top</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
   </footer>
